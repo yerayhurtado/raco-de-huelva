@@ -1,97 +1,163 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function MenuDiario() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const primerosPlatos = [
-    { nombre: "Crema de calabaza con jamón y aire de remolacha" },
-    { nombre: "Potaje de garbanzos con langostinos" },
-    { nombre: "Bacalao dorado (bacalao, cebolla y huevos)" },
-    { nombre: "Canalón de bacalao y langostinos con salsa de pimiento del piquillo" },
-    { nombre: "Patatas de Olot de la chef" },
-    { nombre: "Ensalada de Otoño (granada, membrillo y queso de cabra)" },
-    { nombre: "Milhojas de queso con eneldo y salmón marinado" },
-    { nombre: "Ensalada mezclum con naranja y salmón marinado" },
-    { nombre: "Crujiente de pimenta con atún" },
+    "Crema de calabaza con jamón y aire de remolacha",
+    "Potaje de garbanzos con langostinos",
+    "Bacalao dorado (bacalao, cebolla y huevos)",
+    "Canalón de bacalao y langostinos con salsa de pimiento del piquillo",
+    "Patatas de Olot de la chef",
+    "Ensalada de Otoño (granada, membrillo y queso de cabra)",
+    "Milhojas de queso con eneldo y salmón marinado",
+    "Ensalada mezclum con naranja y salmón marinado",
+    "Crujiente de pimenta con atún",
   ];
 
   const segundosPlatos = [
-    { nombre: "Panceta ibérica confitada a B/T con manzana y cebolla encurtida" },
-    { nombre: "Careta confitada a B/T a la gallega con emulsión de patata" },
-    { nombre: "Secreto ibérico D.O. Huelva con crema de boniato" },
-    { nombre: "Pluma ibérica D.O. Huelva con salsa oporto" },
-    { nombre: "Bacalao confitado sobre cama de espinacas y pasas" },
-    { nombre: "Pulpo D.O. Huelva braseado con crema de calabaza casera" },
-    { nombre: "Lubina al horno con ajos confitados" },
-    { nombre: "Pez espada con salsa verde y almejas" },
-    { nombre: "Bonito D.O. Santoña a la plancha con cebolla caramelizada" },
-    { nombre: "Arroz caldoso de bogavante (todos los jueves)" },
+    "Panceta ibérica confitada a B/T con manzana y cebolla encurtida",
+    "Careta confitada a B/T a la gallega con emulsión de patata",
+    "Secreto ibérico D.O. Huelva con crema de boniato",
+    "Pluma ibérica D.O. Huelva con salsa oporto",
+    "Bacalao confitado sobre cama de espinacas y pasas",
+    "Pulpo D.O. Huelva braseado con crema de calabaza casera",
+    "Lubina al horno con ajos confitados",
+    "Pez espada con salsa verde y almejas",
+    "Bonito D.O. Santoña a la plancha con cebolla caramelizada",
+    "Arroz caldoso de bogavante (todos los jueves)",
   ];
 
-  const precioMenu = "17.95€"; // precio único del menú
+  const precioMenu = "17.95€";
 
   return (
     <section
       id="menu"
-      className="py-20 sm:py-28 bg-[#0D2E3D] px-4 sm:px-6 lg:px-8"
+      className="py-20 sm:py-28 bg-gradient-to-br from-[#0D2E3D] via-[#0F3F5C] to-[#0D2E3D] px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       aria-label="Menú del Día - El Racó de Huelva"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF8A]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#E8704A]/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-8 bg-[#D4AF8A]"></div>
-            <span className="text-xs sm:text-sm font-semibold tracking-widest text-[#D4AF8A] uppercase">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#D4AF8A]"></div>
+            <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] text-[#D4AF8A] uppercase">
               Especial de Martes a Viernes
             </span>
-            <div className="h-px w-8 bg-[#D4AF8A]"></div>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#D4AF8A]"></div>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#D4AF8A] mb-4">
+          
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF8A] to-[#E8C9A0] mb-6">
             Menú del Día
           </h2>
-          <p className="text-base sm:text-lg text-[#F9F6F1] max-w-2xl mx-auto leading-relaxed">
-            Selección de nuestros mejores platos a precio especial.
-            Disponible de martes a viernes en horario de comida.
+          
+          <p className="text-base sm:text-lg text-[#F9F6F1]/90 max-w-2xl mx-auto leading-relaxed">
+            Selección de nuestros mejores platos elaborados con ingredientes de primera calidad.
+            <br />
+            <span className="text-[#D4AF8A] font-medium">Disponible de martes a viernes en horario de comida.</span>
           </p>
         </div>
 
-        {/* Primeros Platos */}
-        <div className="mb-12">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#D4AF8A] mb-6">Primeros Platos</h3>
-          <ul className="space-y-2 text-[#F9F6F1]">
-            {primerosPlatos.map((item, index) => (
-              <li key={index}>{item.nombre}</li>
-            ))}
-          </ul>
+        {/* Grid de dos columnas para pantallas grandes */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+          {/* Primeros Platos */}
+          <div className="bg-[#F9F6F1]/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4AF8A]/20 shadow-xl">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2 h-2 rounded-full bg-[#E8704A]"></div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#D4AF8A]">Primeros Platos</h3>
+            </div>
+            
+            <ul className="space-y-4">
+              {primerosPlatos.map((item, index) => (
+                <li
+                  key={index}
+                  className="p-3 rounded-lg transition-all duration-300 hover:bg-[#F9F6F1]/5"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <span className={`text-sm sm:text-base text-[#F9F6F1] leading-relaxed transition-colors duration-300 ${
+                    hoveredIndex === index ? 'text-[#D4AF8A]' : ''
+                  }`}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Segundos Platos */}
+          <div className="bg-[#F9F6F1]/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4AF8A]/20 shadow-xl">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2 h-2 rounded-full bg-[#E8704A]"></div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#D4AF8A]">Segundos Platos</h3>
+            </div>
+            
+            <ul className="space-y-4">
+              {segundosPlatos.map((item, index) => (
+                <li
+                  key={index}
+                  className="p-3 rounded-lg transition-all duration-300 hover:bg-[#F9F6F1]/5"
+                  onMouseEnter={() => setHoveredIndex(index + 100)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <span className={`text-sm sm:text-base text-[#F9F6F1] leading-relaxed transition-colors duration-300 ${
+                    hoveredIndex === index + 100 ? 'text-[#D4AF8A]' : ''
+                  }`}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Segundos Platos */}
-        <div className="mb-12">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#D4AF8A] mb-6">Segundos Platos</h3>
-          <ul className="space-y-2 text-[#F9F6F1]  ">
-            {segundosPlatos.map((item, index) => (
-              <li key={index}>{item.nombre}</li>
-            ))}
-          </ul>
-        </div>
+        {/* Precio y detalles */}
+        <div className="bg-gradient-to-br from-[#F9F6F1]/10 to-[#D4AF8A]/5 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border-2 border-[#D4AF8A]/30 shadow-2xl mb-12">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <div className="text-5xl sm:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E8704A] to-[#D4AF8A] mb-2">
+                {precioMenu}
+              </div>
+              <div className="h-1 bg-gradient-to-r from-transparent via-[#D4AF8A] to-transparent rounded-full"></div>
+            </div>
+          </div>
 
-        {/* Precio destacado con animación */}
-        <div className="text-center mb-12">
-          <motion.span
-            className="text-4xl sm:text-5xl font-bold text-[#E8704A]"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
-          >
-            {precioMenu}
-          </motion.span>
-        </div>
+          <div className="grid sm:grid-cols-3 gap-6 text-center">
+            <div className="space-y-2">
 
-        {/* Nota */}
-        <div className="p-6 sm:p-8 bg-[#F9F6F1]/20 border-l-4 border-[#D4AF8A] rounded mb-12">
-          <p className="text-sm sm:text-base text-[#F9F6F1]">
-            <span className="font-semibold text-[#D4AF8A]">Incluido:</span> Pan, postre y bebida (agua mineral o copa de vino de Rioja T/B). Tupper para llevar 1€.
-          </p>
+              <p className="text-[#F9F6F1] text-sm sm:text-base">
+                <span className="block font-semibold text-[#D4AF8A]">Incluye</span>
+                Pan artesanal
+              </p>
+            </div>
+            
+            <div className="space-y-2">
+              
+              <p className="text-[#F9F6F1] text-sm sm:text-base">
+                <span className="block font-semibold text-[#D4AF8A]">Postre</span>
+                Selección del día
+              </p>
+            </div>
+            
+            <div className="space-y-2">
+              <p className="text-[#F9F6F1] text-sm sm:text-base">
+                <span className="block font-semibold text-[#D4AF8A]">Bebida</span>
+                Agua o vino Rioja
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-[#D4AF8A]/30 text-center">
+            <p className="text-sm text-[#F9F6F1]/80">
+              <span className="text-[#D4AF8A] font-semibold">Servicio Tupper:</span> Lleva tus platos favoritos por solo 1€ adicional
+            </p>
+          </div>
         </div>
 
         {/* CTA */}
@@ -100,9 +166,9 @@ export default function MenuDiario() {
             href="#contacto"
             role="button"
             aria-label="Reserva tu mesa en El Racó de Huelva"
-            className="w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-8 sm:px-10 py-3 sm:py-4 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
+            className="inline-block bg-gradient-to-r from-[#E8704A] to-[#D4764A] hover:from-[#D4764A] hover:to-[#E8704A] text-white px-10 sm:px-12 py-4 sm:py-5 font-bold rounded-xl transition-all duration-300 shadow-2xl hover:shadow-[#E8704A]/50 hover:scale-105 text-base sm:text-lg"
           >
-            Reservar Menú
+            Reservar Menú del Día
           </a>
         </div>
       </div>
