@@ -13,7 +13,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "Croquetas de Secreto Ibérico con Miel",
-      descripcion: "Croquetas de secreto ibérico con un toque dulce de miel",
+      descripcion: "Croquetas de secreto ibérico con un toque dulce de miel ",
       precio: "12,95€"
     },
     {
@@ -107,7 +107,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
   "Carnes": [
     {
       nombre: "Brownie",
-      descripcion: "Base de bizcocho al vino con carne de buey y salsa oporto",
+      descripcion: "Base de bizcocho al vino con carne de buey y salsa oporto B/T",
       precio: "16,95€"
     },
     {
@@ -117,12 +117,12 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "Zarpa de Oso",
-      descripcion: "Costillar de ternera con emulsión de patata y ahumado con encina",
+      descripcion: "Costillar de ternera con emulsión de patata y ahumado con encina B/T",
       precio: "26,95€"
     },
     {
       nombre: "Panceta Ibérica",
-      descripcion: "Dados de panceta ibérica con compota de manzana, cebolla encurtida y ahumado con encina",
+      descripcion: "Dados de panceta ibérica con compota de manzana, cebolla encurtida y ahumado con encina B/T",
       precio: "16,95€"
     },
   ],
@@ -144,12 +144,12 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "Mar y Montaña",
-      descripcion: "Albóndigas de choco con gamba roja y jamón de bellota",
+      descripcion: "Albóndigas de choco con gamba roja y crema de jamón de bellota",
       precio: "17,95€"
     },
     {
       nombre: "Lubina de Isla Canela",
-      descripcion: "Lubina al horno con cama de salteado de verduras del campo",
+      descripcion: "Lubina al horno con ajos confitados cama de salteado de verduras del campo",
       precio: "17,95€"
     },
     {
@@ -195,7 +195,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "Planchadito de Crema",
-      descripcion: "Crema catalana quemada al momento",
+      descripcion: "Xuxo relleno de cremosa crema pastelera, planchadito al momento y acompañado de una bola de helado artesanal, ofreciendo un delicioso contraste de texturas y temperaturas.",
       precio: "6,95€"
     },
     {
