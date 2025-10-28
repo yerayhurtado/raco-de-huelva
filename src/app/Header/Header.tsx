@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { MapPin, Calendar, Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +24,7 @@ export default function Header() {
     { label: "Opiniones", href: "#opiniones" },
     { label: "Carta", href: "#carta" },
     { label: "Menú del Día", href: "#menu" },
+    { label: "Menús de Grupo", href: "#menus-grupo" },
     { label: "Contacto", href: "#contacto" },
   ];
 
@@ -42,7 +44,7 @@ export default function Header() {
               "addressLocality": "Mollet del Vallès",
               "addressCountry": "ES"
             },
-            "telephone": "+34 123 456 789",
+            "telephone": "+34 658 890 607",
             "servesCuisine": "Mediterránea"
           })
         }}
@@ -61,15 +63,28 @@ export default function Header() {
           <div className="hidden md:flex items-center justify-between gap-8">
             {/* Logo + Info (Izquierda) */}
             <div className="flex items-center gap-3 flex-shrink-0">
-              <Link href="/" className="flex flex-col">
-                <h1 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
+              <Link href="/" className="flex items-center gap-3">
+                {/* Logo del restaurante con fondo blanco circular */}
+                <div className="w-16 h-16 lg:w-20 lg:h-20 relative flex-shrink-0 bg-white rounded-full p-2 shadow-md">
+                  <Image
+                    src="/logo.png"
+                    alt="Logo El Racó de Huelva"
+                    fill
+                    className="object-contain p-1"
+                    priority
+                  />
+                </div>
+                {/* Nombre y ubicación */}
+                <div className="flex flex-col">
+                  <h1 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
                     El Racó de Huelva
-                </h1>
-                <div className="flex items-center gap-1 text-xs lg:text-sm text-[#F9F6F1]">
-                <MapPin size={14} aria-hidden="true" focusable="false" />
-                <span>Carrer Roger de Llúria, 7, Mollet</span>
-            </div>
-            </Link>
+                  </h1>
+                  <div className="flex items-center gap-1 text-xs lg:text-sm text-[#F9F6F1]">
+                    <MapPin size={14} aria-hidden="true" focusable="false" />
+                    <span>Carrer Roger de Llúria, 7, Mollet</span>
+                  </div>
+                </div>
+              </Link>
             </div>
 
             {/* Navegación (Centro) */}
@@ -112,15 +127,28 @@ export default function Header() {
           <div className="md:hidden flex items-center justify-between">
             {/* Logo Mobile */}
             <div className="flex-1">
-              <Link href="/" className="flex flex-col">
-                <h1 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
-                    El Racó de Huelva
-                </h1>
-                <div className="flex items-center gap-1 text-xs lg:text-sm text-[#F9F6F1]">
-                    <MapPin size={14} aria-hidden="true" focusable="false" />
-                    <span>Carrer Roger de Llúria, 7, Mollet</span>
+              <Link href="/" className="flex items-center gap-2">
+                {/* Logo del restaurante mobile con fondo blanco circular */}
+                <div className="w-14 h-14 relative flex-shrink-0 bg-white rounded-full p-1.5 shadow-md">
+                  <Image
+                    src="/logo.png"
+                    alt="Logo El Racó de Huelva"
+                    fill
+                    className="object-contain p-0.5"
+                    priority
+                  />
                 </div>
-                </Link>
+                {/* Nombre y ubicación mobile */}
+                <div className="flex flex-col">
+                  <h1 className="text-base sm:text-lg font-bold text-[#D4AF8A]">
+                    El Racó de Huelva
+                  </h1>
+                  <div className="flex items-center gap-1 text-xs text-[#F9F6F1]">
+                    <MapPin size={12} aria-hidden="true" focusable="false" />
+                    <span>Mollet del Vallès</span>
+                  </div>
+                </div>
+              </Link>
             </div>
 
             {/* Botones Mobile */}

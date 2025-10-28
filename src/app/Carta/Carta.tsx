@@ -2,91 +2,270 @@
 
 import { useState } from "react";
 
-type MenuCategory = "Entrantes" | "Arroces" | "Crustáceos" | "Pescados";
+type MenuCategory = "Para compartir" | "Entrantes especiales" | "Carnes" | "Pescados" | "Arroces" | "Bollería" | "Postres" | "Vinos";
 
 const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; precio: string }[]> = {
-  "Entrantes": [
+  "Para compartir": [
     {
-      nombre: "Tabla de Mariscos",
-      descripcion: "Selección variada de mariscos frescos de Huelva",
-      precio: "28€"
+      nombre: "Croquetas de Cochinillo con Manzana",
+      descripcion: "Croquetas cremosas de cochinillo con toque de manzana",
+      precio: "14,95€"
     },
     {
-      nombre: "Ostras Frescas",
-      descripcion: "Doce ostras de la mejor procedencia",
-      precio: "24€"
+      nombre: "Croquetas de Secreto Ibérico con Miel",
+      descripcion: "Croquetas de secreto ibérico con un toque dulce de miel",
+      precio: "12,95€"
     },
     {
-      nombre: "Ceviche de Gambas",
-      descripcion: "Gambas rojas marinadas en limón y cilantro",
-      precio: "16€"
+      nombre: "Revuelto de Langostinos y Trufa",
+      descripcion: "Revuelto suave con langostinos frescos y trufa",
+      precio: "19,95€"
     },
     {
-      nombre: "Pulpitos a la Gallega",
-      descripcion: "Pulpitos cocidos con pimentón y aceite de oliva",
-      precio: "18€"
+      nombre: "Papas de San Lúcar",
+      descripcion: "Tradicionales papas de San Lúcar",
+      precio: "18,95€"
+    },
+    {
+      nombre: "Saquito de Verdura y Queso",
+      descripcion: "Saquito crujiente relleno de verduras y queso",
+      precio: "9,95€"
+    },
+    {
+      nombre: "Micuit Silvestre",
+      descripcion: "Micuit de alta calidad con toques silvestres",
+      precio: "25,95€"
+    },
+    {
+      nombre: "Tortitas de Camarón Caseras",
+      descripcion: "Tortitas crujientes de camarón de elaboración casera",
+      precio: "14,95€"
+    },
+    {
+      nombre: "Anchoa del Cantábrico 000",
+      descripcion: "Anchoa de máxima calidad del Cantábrico",
+      precio: "3,95€/filete"
+    },
+    {
+      nombre: "Calamares a la Andaluza",
+      descripcion: "Calamares rebozados al estilo andaluz",
+      precio: "14,95€"
+    },
+    {
+      nombre: "Cazón en Adobo",
+      descripcion: "Cazón marinado y frito en adobo tradicional",
+      precio: "14,95€"
+    },
+    {
+      nombre: "Coquinas D.O de Huelva",
+      descripcion: "Coquinas frescas con Denominación de Origen de Huelva",
+      precio: "19,95€"
+    },
+    {
+      nombre: "Trinchat de Gamba de Cristal",
+      descripcion: "Gamba de cristal en su punto perfecto",
+      precio: "19,95€"
+    },
+    {
+      nombre: "Zamburiñas a la Brasa",
+      descripcion: "4 unidades de zamburiñas frescas a la brasa",
+      precio: "12,95€"
+    },
+    {
+      nombre: "Vieira Fresca con Berenjena Ahumada",
+      descripcion: "Vieira fresca acompañada de berenjena ahumada",
+      precio: "6,95€"
+    },
+    {
+      nombre: "Bocaditos de Crujiente de Langostino",
+      descripcion: "Langostino en crujiente perfecto para compartir",
+      precio: "12,95€"
     },
   ],
-  "Arroces": [
+  "Entrantes especiales": [
     {
-      nombre: "Arroz de Marisco",
-      descripcion: "Con gambas, cigalas, mejillones y caldo de marisco",
-      precio: "22€"
+      nombre: "Tartar de Salmón",
+      descripcion: "Helado de aguacate, tartar de salmón y aires de limón",
+      precio: "14,95€"
     },
     {
-      nombre: "Arroz Negro",
-      descripcion: "Con sepia, gambas y tinta de calamar",
-      precio: "20€"
+      nombre: "Flor de Alcachofa",
+      descripcion: "Flor de alcachofa confitada acabada en brasa con foie y langostinos",
+      precio: "14,95€"
     },
     {
-      nombre: "Paella de Bogavante",
-      descripcion: "Con trozos de bogavante fresco de Huelva",
-      precio: "32€"
+      nombre: "Carpaccio de Quisquilla con Foie",
+      descripcion: "Finas láminas de quisquilla con foie",
+      precio: "25,95€"
+    },
+    {
+      nombre: "Carpaccio de Gamba Roja con Foie",
+      descripcion: "Carpaccio de gamba roja de Huelva con foie",
+      precio: "24,95€"
     },
   ],
-  "Crustáceos": [
+  "Carnes": [
     {
-      nombre: "Bogavante a la Brasa",
-      descripcion: "Cocido a la brasa con mantequilla clarificada",
-      precio: "42€"
+      nombre: "Brownie",
+      descripcion: "Base de bizcocho al vino con carne de buey y salsa oporto",
+      precio: "16,95€"
     },
     {
-      nombre: "Gamba Roja de Huelva",
-      descripcion: "Cocida al punto con sal marina",
-      precio: "26€"
+      nombre: "El Canelón",
+      descripcion: "Pollo de corral con trufa y salsa de foie a baja temperatura 24 horas",
+      precio: "15,95€"
     },
     {
-      nombre: "Cigalas a la Sal",
-      descripcion: "Frescas cocidas con mayonesa casera",
-      precio: "28€"
+      nombre: "Zarpa de Oso",
+      descripcion: "Costillar de ternera con emulsión de patata y ahumado con encina",
+      precio: "26,95€"
     },
     {
-      nombre: "Nécora Fresca",
-      descripcion: "Servida en su jugo con limón y aceite virgen",
-      precio: "24€"
+      nombre: "Panceta Ibérica",
+      descripcion: "Dados de panceta ibérica con compota de manzana, cebolla encurtida y ahumado con encina",
+      precio: "16,95€"
     },
   ],
   "Pescados": [
     {
-      nombre: "Lubina a la Sal",
-      descripcion: "Lubina fresca cocida en costra de sal",
-      precio: "32€"
+      nombre: "Bacalao Pil-Pil",
+      descripcion: "Suprema de bacalao confitado a baja temperatura con almejas y salsa pil pil",
+      precio: "18,95€"
     },
     {
-      nombre: "Rodaballo a la Mantequilla",
-      descripcion: "Rodaballo de primera calidad con salsa de vino blanco",
-      precio: "38€"
+      nombre: "Choco Kinder",
+      descripcion: "Sepia a la plancha rellena de langostinos al ajillo",
+      precio: "20,95€"
     },
     {
-      nombre: "Lenguado Meunière",
-      descripcion: "Lenguado fresco salteado con limón",
-      precio: "34€"
+      nombre: "El Pulpo",
+      descripcion: "Pata de pulpo a la brasa con emulsión de patata y ahumada con encina",
+      precio: "24,95€"
+    },
+    {
+      nombre: "Mar y Montaña",
+      descripcion: "Albóndigas de choco con gamba roja y jamón de bellota",
+      precio: "17,95€"
+    },
+    {
+      nombre: "Lubina de Isla Canela",
+      descripcion: "Lubina al horno con cama de salteado de verduras del campo",
+      precio: "17,95€"
+    },
+    {
+      nombre: "El Bronceado",
+      descripcion: "Salmón al horno con costra de azúcar moreno, verduritas y polvo de pistacho",
+      precio: "19,95€"
     },
   ],
+  "Arroces": [
+    {
+      nombre: "Arroz Caldoso de Bogavante",
+      descripcion: "Mínimo dos personas",
+      precio: "26,95€"
+    },
+    {
+      nombre: "Mariscada El Racó",
+      descripcion: "Solo disponible fin de semana - Para dos comensales",
+      precio: "119,95€"
+    },
+  ],
+  "Bollería": [
+    {
+      nombre: "Pan de Coca",
+      descripcion: "Pan dulce tradicional",
+      precio: "3,95€"
+    },
+  ],
+  "Postres": [
+    {
+      nombre: "Sorbete de Limón con Mar de Cava",
+      descripcion: "Sorbete refrescante de limón con cava o mandarina con vodka",
+      precio: "6,50€"
+    },
+    {
+      nombre: "Helado de Crema de Orujo",
+      descripcion: "Helado artesanal con crema de orujo",
+      precio: "7,50€"
+    },
+    {
+      nombre: "Torrija al Horno de Baileys",
+      descripcion: "Torrija horneada con sabor a Baileys",
+      precio: "6,50€"
+    },
+    {
+      nombre: "Planchadito de Crema",
+      descripcion: "Crema catalana quemada al momento",
+      precio: "6,95€"
+    },
+    {
+      nombre: "Cheesecake Casera",
+      descripcion: "Tarta de queso casera tradicional",
+      precio: "6,50€"
+    },
+    {
+      nombre: "Cheesecake Casera Sabores",
+      descripcion: "Tarta de queso casera con variedad de sabores",
+      precio: "6,95€"
+    },
+  ],
+  "Vinos": [
+    {
+      "nombre": "Vino de la Casa",
+      "descripcion": "DOCa Rioja. 95% Tempranillo, 5% Graciano. Color cereza de capa media-alta con ribete rojizo. Aroma intenso, combinando fruta fresca y confinada. De entrada fresca y viva con un equilibrio tánico-ácido adecuado, largo retrogusto.",
+      "precio": "16€ (Botella) / 3,95€ (Copa)"
+    },
+    {
+      "nombre": "Zuazo Gastón Crianza",
+      "descripcion": "DOCa Rioja. 100% Tempranillo. 15 meses en barrica de roble francés y americano. Color rojo rubí ligero e intenso. Aromas varietales y de crianza (roble y vainilla). Complejo y elegante en boca. Intenso retrogusto.",
+      "precio": "20,95€"
+    },
+    {
+      "nombre": "Tamiz Roble",
+      "descripcion": "DO Ribera del Duero. 100% Tempranillo. 7 meses en barrica de roble americano. Color rojo cereza, limpio, con ribete violáceo. Intensa nariz, con frutas rojas del bosque y vainilla propia de la madera. En boca es redonda, con matices balsámicos, sedoso.",
+      "precio": "16,95€ (Botella) / 4,50€ (Copa)"
+    },
+    {
+      "nombre": "Teófilo Reyes",
+      "descripcion": "DO Ribera del Duero. 100% Tempranillo. 15 meses en barrica de roble francés y americano. Vista limpia, color cereza con ribete granate. Nariz: notas de fruta madura, caramelo y tostados. En boca es sedoso, con recuerdos de minerales, confitura y balsámicos, bien ensamblado.",
+      "precio": "27€"
+    },
+    {
+      "nombre": "Ulls Negres Crianza",
+      "descripcion": "DO Empordà. 100% Garnacha. 12 meses en barrica de roble americano. Color cereza con reflejos de color teja. En nariz es muy franco, con notas a frutas maduras. En boca es graso y potente, con final largo y equilibrado con tanino suave.",
+      "precio": "18,50€"
+    },
+    {
+      "nombre": "Vino de la Casa",
+      "descripcion": "100% Verdejo. Color amarillo pálido con sutiles reflejos dorados. Aromas de piña, melocotón y cítricos junto a notas florales y de hinojo. Excelente entrada fresca, con acidez, fruta y frescura.",
+      "precio": "16€ (Botella) / 3,95€ (Copa)"
+    },
+    {
+      "nombre": "Pere Punyetes",
+      "descripcion": "DO Penedès. 60% Muscat y 40% Xarel·lo. En nariz se despliegan aromas intensos de azahar y flores blancas, entrelazados con destellos de mango y piña. En boca, su textura sedosa y su amplitud se hacen presentes, llevándonos a un viaje por sabores de frutas maduras y un final ligeramente cítrico.",
+      "precio": "18,50€"
+    },
+    {
+      "nombre": "Marqués de Vizhoja",
+      "descripcion": "Sin D.O. Tradicionales de procedencia nacional. Color amarillo pálido con una notas verdosas. Aroma fresco, fino y penetrante, con toques frutales. Ofrece un sabor equilibrado que recuerda a manzana y pera, con suaves notas cítricas.",
+      "precio": "19,95€"
+    },
+    {
+      "nombre": "Ullones Rosado",
+      "descripcion": "DO Empordà. 100% Garnacha. Color rosa suave con reflejos grises. Desarrolla sutiles e inagotables aromas: pétalos de rosa, fresas, frambuesas y cerezas. Sensaciones de untuosidad y suavidad en boca. Encontramos balance, frescor, y en su desarrollo al paladar de nuevo una melosa untuosidad.",
+      "precio": "17,95€"
+    },
+    {
+      "nombre": "Oh Brut Nature",
+      "descripcion": "DO Cava. Macabeo, Xarel·lo. Mínimo 15 meses en la cava. Atractivo color amarillo pálido brillante. Burbuja fina que forma una corona de espuma. Buena intensidad aromática, rico en aromas florales y afrutados que denotan personalidad. En boca es fresco, seco y afrutado. Conjunto equilibrado con buena persistencia.",
+      "precio": "18€"
+    }
+]
+
 };
 
 export default function Carta() {
-  const [activeCategory, setActiveCategory] = useState<MenuCategory>("Entrantes");
+  const [activeCategory, setActiveCategory] = useState<MenuCategory>("Para compartir");
   const categories = Object.keys(menuItems) as MenuCategory[];
 
   return (
@@ -109,7 +288,7 @@ export default function Carta() {
             Carta
           </h2>
           <p className="text-base sm:text-lg text-[#3A3A3A] max-w-2xl mx-auto leading-relaxed">
-            Disfruta de nuestra selección gourmet completa de mariscos frescos
+            Disfruta de nuestra selección gourmet de productos frescos
             directamente importados desde Huelva
           </p>
         </div>
@@ -155,10 +334,14 @@ export default function Carta() {
 
         {/* Nota importante */}
         <div className="p-6 sm:p-8 bg-[#0F3F5C]/5 border-l-4 border-[#D4AF8A] rounded mb-12">
-          <p className="text-sm sm:text-base text-[#3A3A3A]">
+          <p className="text-sm sm:text-base text-[#3A3A3A] mb-3">
             <span className="font-semibold text-[#0F3F5C]">Consulte disponibilidad:</span> Todos nuestros productos
             son frescos y de temporada. Las disponibilidades pueden variar según la captura diaria.
             Recomendamos llamar con antelación para confirmar su plato favorito.
+          </p>
+          <p className="text-xs sm:text-sm text-[#3A3A3A] italic">
+            * Disponemos de la carta con alérgenos, solicítela al camarero.<br />
+            * Si dispone de alguna alergia o intolerancia, háganoslo saber.
           </p>
         </div>
 
@@ -168,7 +351,7 @@ export default function Carta() {
             href="#contacto"
             role="button"
             aria-label="Reserva tu mesa en El Racó de Huelva"
-            className="w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-8 sm:px-10 py-3 sm:py-4 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
+            className="inline-block w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-8 sm:px-10 py-3 sm:py-4 font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
           >
             Reserva tu Mesa
           </a>

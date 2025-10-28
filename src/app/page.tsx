@@ -6,6 +6,7 @@ import MenuDiario from "./MenuDiario/MenuDiario";
 import Contact from "./Contacto/Contacto";
 import Footer from "./Footer/Footer";
 import Opiniones from "./Opiniones/Opiniones";
+import MenusGrupo from "./MenuGrupo/MenuGrupo";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Opiniones />
       <Carta />      
       <MenuDiario />
+      <MenusGrupo />
       <Contact />
       <Footer />
     </>
