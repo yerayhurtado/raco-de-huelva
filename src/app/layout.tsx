@@ -18,6 +18,20 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "El Racó de Huelva",
   description: "Restaurante de mariscos de alta calidad importados desde Huelva",
+
+    robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "El Racó de Huelva",
+    description: "Mariscos de alta calidad importados desde Huelva",
+    url: "https://elracodehuelva.es",
+    siteName: "El Racó de Huelva",
+    locale: "es_ES",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

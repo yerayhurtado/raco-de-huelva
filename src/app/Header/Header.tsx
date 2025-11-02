@@ -76,9 +76,9 @@ export default function Header() {
                 </div>
                 {/* Nombre y ubicación */}
                 <div className="flex flex-col">
-                  <h1 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
+                  <h2 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
                     El Racó de Huelva
-                  </h1>
+                  </h2>
                   <div className="flex items-center gap-1 text-xs lg:text-sm text-[#F9F6F1]">
                     <MapPin size={14} aria-hidden="true" focusable="false" />
                     <span>Carrer Roger de Llúria, 7, Mollet</span>
@@ -140,9 +140,9 @@ export default function Header() {
                 </div>
                 {/* Nombre y ubicación mobile */}
                 <div className="flex flex-col">
-                  <h1 className="text-base sm:text-lg font-bold text-[#D4AF8A]">
+                  <h2 className="text-base sm:text-lg font-bold text-[#D4AF8A]">
                     El Racó de Huelva
-                  </h1>
+                  </h2>
                   <div className="flex items-center gap-1 text-xs text-[#F9F6F1]">
                     <MapPin size={12} aria-hidden="true" focusable="false" />
                     <span>Mollet del Vallès</span>
