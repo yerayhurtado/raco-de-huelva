@@ -73,7 +73,8 @@ export default function Footer() {
               <div>
                 <p className="font-semibold text-[#0F3F5C]">Martes - Domingo</p>
                 <p>13:00 - 16:00</p>
-                <p>20:30 - 23:00</p>
+                <p className="font-semibold text-[#0F3F5C]">Viernes - Sabado (Noche):</p>
+                <p>20:30 - 23:30</p>
               </div>
               <div className="pt-2 border-t border-[#D4AF8A]/30">
                 <p className="font-semibold text-[#E8704A]">Lunes: Cerrado</p>

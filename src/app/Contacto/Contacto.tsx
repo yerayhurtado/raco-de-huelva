@@ -156,7 +156,8 @@ export default function Contact() {
                       <div>
                         <dt className="font-semibold text-[#D4AF8A]">Martes - Domingo:</dt>
                         <dd>13:00 - 16:00</dd>
-                        <dd>20:30 - 23:00</dd>
+                        <dt className="font-semibold text-[#D4AF8A]">Viernes - Sabado (Noche):</dt>
+                        <dd>20:30 - 23:30</dd>
                       </div>
                       <div className="pt-2 border-t border-[#D4AF8A]/20">
                         <dt className="font-semibold text-[#E8704A]">Lunes:</dt>

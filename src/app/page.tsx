@@ -7,12 +7,14 @@ import Contact from "./Contacto/Contacto";
 import Footer from "./Footer/Footer";
 import Opiniones from "./Opiniones/Opiniones";
 import MenusGrupo from "./MenuGrupo/MenuGrupo";
+import ChristmasAnnouncement from "./NavidadBanner/ChristmasBanner";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
+      <ChristmasAnnouncement />
       <Gallery />
       <Opiniones />
       <Carta />      
