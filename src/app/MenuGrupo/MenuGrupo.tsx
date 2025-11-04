@@ -137,6 +137,10 @@ export default function MenusGrupo() {
                     <span className="text-[#D4AF8A] mt-1">•</span>
                     <span>Croquetas de secreto con miel de caña</span>
                   </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4AF8A] mt-1">•</span>
+                    <span>Pan de coca con tomate</span>
+                  </li>
                 </ul>
               </div>
 
