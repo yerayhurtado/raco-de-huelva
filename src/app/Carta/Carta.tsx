@@ -27,14 +27,14 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       precio: "18,95€"
     },
     {
-      nombre: "Saquito de Verdura y Queso",
-      descripcion: "Saquito crujiente relleno de verduras y queso",
-      precio: "9,95€"
+      nombre: "Rocas Volcánicas",
+      descripcion: "",
+      precio: "14,95€"
     },
     {
-      nombre: "Micuit Silvestre",
-      descripcion: "Micuit de alta calidad con toques silvestres",
-      precio: "25,95€"
+      nombre: "Cochifrito con Manzana",
+      descripcion: "Trozos de cochinillo fritos acompañados de manzana",
+      precio: "15,95€"
     },
     {
       nombre: "Tortitas de Camarón Caseras",
@@ -47,9 +47,9 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       precio: "3,95€/filete"
     },
     {
-      nombre: "Calamares a la Andaluza",
-      descripcion: "Calamares rebozados al estilo andaluz",
-      precio: "14,95€"
+      nombre: "Mejillones en Salsa Picante",
+      descripcion: "Mejillones frescos cocinados en salsa picante",
+      precio: "12,95€"
     },
     {
       nombre: "Cazón en Adobo",
@@ -62,8 +62,8 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       precio: "19,95€"
     },
     {
-      nombre: "Trinchat de Gamba de Cristal",
-      descripcion: "Gamba de cristal en su punto perfecto",
+      nombre: "Olla de Caracoles Ibéricos",
+      descripcion: "Caracoles ibéricos guisados al estilo tradicional",
       precio: "19,95€"
     },
     {
@@ -76,11 +76,6 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       descripcion: "Vieira fresca acompañada de berenjena ahumada",
       precio: "6,95€"
     },
-    {
-      nombre: "Bocaditos de Crujiente de Langostino",
-      descripcion: "Langostino en crujiente perfecto para compartir",
-      precio: "12,95€"
-    },
   ],
   "Entrantes especiales": [
     {
@@ -92,16 +87,6 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       nombre: "Flor de Alcachofa",
       descripcion: "Flor de alcachofa confitada acabada en brasa con foie y langostinos",
       precio: "14,95€"
-    },
-    {
-      nombre: "Carpaccio de Quisquilla con Foie",
-      descripcion: "Finas láminas de quisquilla con foie",
-      precio: "25,95€"
-    },
-    {
-      nombre: "Carpaccio de Gamba Roja con Foie",
-      descripcion: "Carpaccio de gamba roja de Huelva con foie",
-      precio: "24,95€"
     },
   ],
   "Carnes": [
@@ -116,6 +101,11 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       precio: "15,95€"
     },
     {
+      nombre: "El Crujiente de Ministro",
+      descripcion: "Manitas de cerdo deshuesadas crujientes con salsa de foie",
+      precio: "18,95€"
+    },
+    {
       nombre: "Zarpa de Oso",
       descripcion: "Costillar de ternera con emulsión de patata y ahumado con encina B/T",
       precio: "26,95€"
@@ -128,14 +118,14 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
   ],
   "Pescados": [
     {
-      nombre: "Bacalao Pil-Pil",
-      descripcion: "Suprema de bacalao confitado a baja temperatura con almejas y salsa pil pil",
+      nombre: "Bacalao a la Miel",
+      descripcion: "Dados de bacalao en tempura de miel",
       precio: "18,95€"
     },
     {
-      nombre: "Choco Kinder",
-      descripcion: "Sepia a la plancha rellena de langostinos al ajillo",
-      precio: "20,95€"
+      nombre: "La Perla",
+      descripcion: "Delicadas cocochas de bacalao emulsionadas en nuestra salsa pilpil tradicional, con ajo y guindilla",
+      precio: "22,95€"
     },
     {
       nombre: "El Pulpo",
@@ -157,6 +147,11 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       descripcion: "Salmón al horno con costra de azúcar moreno, verduritas y polvo de pistacho",
       precio: "19,95€"
     },
+    {
+      nombre: "Mariscada El Racó",
+      descripcion: "Solo disponible fin de semana - Para dos comensales",
+      precio: "119,95€"
+    },
   ],
   "Arroces": [
     {
@@ -164,11 +159,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       descripcion: "Mínimo dos personas",
       precio: "26,95€"
     },
-    {
-      nombre: "Mariscada El Racó",
-      descripcion: "Solo disponible fin de semana - Para dos comensales",
-      precio: "119,95€"
-    },
+    
   ],
   "Bollería": [
     {
@@ -179,18 +170,18 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
   ],
   "Postres": [
     {
-      nombre: "Sorbete de Limón con Mar de Cava",
+      nombre: "Sorbete de Limón con Mar de Cava o Mandarina con Vodka",
       descripcion: "Sorbete refrescante de limón con cava o mandarina con vodka",
-      precio: "6,50€"
+      precio: "6,95€"
     },
     {
-      nombre: "Helado de Crema de Orujo",
-      descripcion: "Helado artesanal con crema de orujo",
-      precio: "7,50€"
+      nombre: "Tiramisú Casero",
+      descripcion: "Tiramisú tradicional casero",
+      precio: "6,95€"
     },
     {
-      nombre: "Torrija al Horno de Baileys",
-      descripcion: "Torrija horneada con sabor a Baileys",
+      nombre: "Torrija de Coco con Helado de Leche Merengada",
+      descripcion: "Torrija de coco caramelizada acompañada de helado artesanal de leche merengada",
       precio: "6,50€"
     },
     {

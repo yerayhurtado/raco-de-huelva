@@ -6,27 +6,27 @@ export default function MenuDiario() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const primerosPlatos = [
-    "Crema de calabaza con jamón y aire de remolacha",
-    "Potaje de garbanzos con langostinos",
+    "Sopa de pescado Marisco",
+    "Lentejas caviar con chips de boniato",
     "Bacalao dorado (bacalao, cebolla y huevos)",
-    "Canalón de bacalao y langostinos con salsa de pimiento del piquillo",
-    "Patatas de Olot de la chef",
-    "Ensalada de Otoño (granada, membrillo y queso de cabra)",
-    "Milhojas de queso con eneldo y salmón marinado",
-    "Ensalada mezclum con naranja y salmón marinado",
-    "Crujiente de pimenta con atún",
+    "Mejillones en salsa picante",
+    "Barquita del Raco Ensalada mezclum y queso de cabra",
+    "Trinxat de la Cerdenya & Mussakka de carne",
+    "Rollitos  de berenjenas con humus",
+    "Esqueixada de bacalao con tierra de olivada",
+    "Fritura de verduras con miel de caña",
   ];
 
   const segundosPlatos = [
-    "Panceta ibérica confitada a B/T con manzana y cebolla encurtida",
+    "Galta al vino confitada a B/T aromatizada con cacao",
     "Careta confitada a B/T a la gallega con emulsión de patata",
-    "Secreto ibérico D.O. Huelva con crema de boniato",
-    "Pluma ibérica D.O. Huelva con salsa oporto",
-    "Bacalao confitado sobre cama de espinacas y pasas",
-    "Pulpo D.O. Huelva braseado con crema de calabaza casera",
+    "Secreto o laagarto a la Brasa",
+    "Tortilla abierta de chistorra y manzana",
+    "Albondigas con tomate caseras de la chef",
+    "Huevos estrellados con butifarra de perol",
     "Lubina al horno con ajos confitados",
-    "Pez espada con salsa verde y almejas",
-    "Bonito D.O. Santoña a la plancha con cebolla caramelizada",
+    "Bacalao a la miel",
+    "El bronceado, Salmón con tierra de pistacho",
     "Arroz caldoso de bogavante (todos los jueves)",
   ];
 
