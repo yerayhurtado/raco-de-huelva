@@ -28,7 +28,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "Rocas Volcánicas",
-      descripcion: "",
+      descripcion: "Buñuelos de bacalao con tempuura de tinta de calamar",
       precio: "14,95€"
     },
     {
@@ -202,7 +202,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
   ],
   "Vinos": [
     {
-      "nombre": "Vino de la Casa",
+      "nombre": "Vino de la Casa Zuazo Gaston Rioja",
       "descripcion": "DOCa Rioja. 95% Tempranillo, 5% Graciano. Color cereza de capa media-alta con ribete rojizo. Aroma intenso, combinando fruta fresca y confinada. De entrada fresca y viva con un equilibrio tánico-ácido adecuado, largo retrogusto.",
       "precio": "16€ (Botella) / 3,95€ (Copa)"
     },
@@ -227,7 +227,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
       "precio": "18,50€"
     },
     {
-      "nombre": "Vino de la Casa",
+      "nombre": "Vino de la Casa Tapas Gaston Verdejo",
       "descripcion": "100% Verdejo. Color amarillo pálido con sutiles reflejos dorados. Aromas de piña, melocotón y cítricos junto a notas florales y de hinojo. Excelente entrada fresca, con acidez, fruta y frescura.",
       "precio": "16€ (Botella) / 3,95€ (Copa)"
     },
