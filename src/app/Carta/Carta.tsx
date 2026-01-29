@@ -97,7 +97,7 @@ const menuItems: Record<MenuCategory, { nombre: string; descripcion: string; pre
     },
     {
       nombre: "El Canelón",
-      descripcion: "Pollo de corral con trufa y salsa de foie a baja temperatura 24 horas",
+      descripcion: "Rabo de toro al vino con cacao",
       precio: "15,95€"
     },
     {
