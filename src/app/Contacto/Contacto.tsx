@@ -40,13 +40,13 @@ export default function Contact() {
               },
               {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Sunday"],
+                dayOfWeek: ["Wednesday", "Thursday", "Sunday"],
                 opens: "13:00",
                 closes: "16:00",
               },
               {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Sunday"],
+                dayOfWeek: ["Wednesday", "Thursday", "Sunday"],
                 opens: "20:30",
                 closes: "23:00",
               },
@@ -117,7 +117,7 @@ export default function Contact() {
                       +34 658 89 06 07
                     </a>
                     <p className="text-sm text-white/90 mt-3">
-                      Disponible de martes a domingo en horario de servicio
+                      Disponible de miercoles a domingo en horario de servicio
                     </p>
                   </div>
                 </div>
@@ -154,13 +154,13 @@ export default function Contact() {
                     </h3>
                     <dl className="text-sm text-[#F9F6F1]/90 space-y-2">
                       <div>
-                        <dt className="font-semibold text-[#D4AF8A]">Martes - Domingo:</dt>
+                        <dt className="font-semibold text-[#D4AF8A]">Miercoles - Domingo:</dt>
                         <dd>13:00 - 16:00</dd>
                         <dt className="font-semibold text-[#D4AF8A]">Viernes - Sabado (Noche):</dt>
                         <dd>20:30 - 23:30</dd>
                       </div>
                       <div className="pt-2 border-t border-[#D4AF8A]/20">
-                        <dt className="font-semibold text-[#E8704A]">Lunes:</dt>
+                        <dt className="font-semibold text-[#E8704A]">Lunes y Martes:</dt>
                         <dd>Cerrado</dd>
                       </div>
                     </dl>

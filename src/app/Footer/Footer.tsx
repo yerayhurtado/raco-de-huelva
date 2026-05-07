@@ -71,13 +71,13 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 text-sm text-[#3A3A3A]">
               <div>
-                <p className="font-semibold text-[#0F3F5C]">Martes - Domingo</p>
+                <p className="font-semibold text-[#0F3F5C]">Miercoles - Domingo</p>
                 <p>13:00 - 16:00</p>
                 <p className="font-semibold text-[#0F3F5C]">Viernes - Sabado (Noche):</p>
                 <p>20:30 - 23:30</p>
               </div>
               <div className="pt-2 border-t border-[#D4AF8A]/30">
-                <p className="font-semibold text-[#E8704A]">Lunes: Cerrado</p>
+                <p className="font-semibold text-[#E8704A]">Lunes y Martes: Cerrado</p>
               </div>
             </div>
           </div>
