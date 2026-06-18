@@ -18,8 +18,8 @@ export default function Home() {
       <Gallery />
       <Opiniones />
       <Carta />      
-      <MenuDiario />
-      <MenusGrupo />
+      {/* <MenuDiario /> */}
+      {/* <MenusGrupo /> */}
       <Contact />
       <Footer />
     </>
