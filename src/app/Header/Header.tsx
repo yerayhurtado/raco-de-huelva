@@ -23,8 +23,8 @@ export default function Header() {
     { label: "Galería", href: "#galeria" },
     { label: "Opiniones", href: "#opiniones" },
     { label: "Carta", href: "#carta" },
-    { label: "Menú del Día", href: "#menu" },
-    { label: "Menús de Grupo", href: "#menus-grupo" },
+    // { label: "Menú del Día", href: "#menu" },
+    // { label: "Menús de Grupo", href: "#menus-grupo" },
     { label: "Contacto", href: "#contacto" },
   ];
 
