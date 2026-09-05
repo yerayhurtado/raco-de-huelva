@@ -131,6 +131,16 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        <div
+          className="hero-in absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex"
+          style={{ "--d": "640ms" } as React.CSSProperties}
+        >
+          <span className="text-[10px] tracking-[0.3em] text-arena/70 uppercase">
+            Descubre
+          </span>
+          <ChevronDown size={18} className="cue text-arena" aria-hidden="true" />
+        </div>
       </section>
     </>
   );
