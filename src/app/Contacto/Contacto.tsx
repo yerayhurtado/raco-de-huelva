@@ -206,9 +206,22 @@ export default function Contact() {
             </ol>
           </Reveal>
 
+          {/* Las otras tres secciones cierran con el filete antes de la
+              llamada a la acción; contacto no lo hacía y la costura con
+              el pie quedaba distinta a las demás. */}
+          <div className="mt-19 flex justify-center">
+            <Reveal
+              variant="rule-draw"
+              as="span"
+              className="block h-px w-16 origin-center bg-arena/70"
+            >
+              {null}
+            </Reveal>
+          </div>
+
           <Reveal
             delay={620}
-            className="mt-19 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
+            className="mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
           >
             <a
               href="tel:+34658890607"
