@@ -14,7 +14,7 @@ export default function MenusGrupo() {
         <div className="text-center mb-16 sm:mb-20">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-px w-8 bg-[#D4AF8A]"></div>
-            <span className="text-xs sm:text-sm font-semibold tracking-widest text-[#D4AF8A] uppercase flex items-center gap-2">
+            <span className="text-mini font-semibold tracking-widest text-[#D4AF8A] uppercase flex items-center gap-2">
               <Users size={16} />
               Experiencias Grupales
             </span>
@@ -23,7 +23,7 @@ export default function MenusGrupo() {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F3F5C] mb-4">
             Menús de Grupo
           </h2>
-          <p className="text-base sm:text-lg text-[#3A3A3A] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-guia text-[#3A3A3A] max-w-2xl mx-auto leading-relaxed">
             Perfecto para celebraciones y reuniones. Mínimo 12 comensales.
           </p>
         </div>
@@ -34,10 +34,10 @@ export default function MenusGrupo() {
           {/* Menú para Compartir */}
           <article className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-[#D4AF8A]/20 hover:shadow-2xl transition-all duration-300">
             <div className="bg-gradient-to-r from-[#0F3F5C] to-[#0D2E3D] p-6 sm:p-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-[#D4AF8A] mb-2">
+              <h3 className="text-pieza sm:text-3xl font-bold text-[#D4AF8A] mb-2">
                 Menú para Compartir
               </h3>
-              <p className="text-[#F9F6F1]/80 text-sm">
+              <p className="text-[#F9F6F1]/80 text-nota">
                 Ideal para disfrutar en grupo
               </p>
             </div>
@@ -45,11 +45,11 @@ export default function MenusGrupo() {
             <div className="p-6 sm:p-8 space-y-6">
               {/* Para Compartir */}
               <div>
-                <h4 className="text-lg font-bold text-[#E8704A] mb-4 flex items-center gap-2">
+                <h4 className="text-precio font-bold text-[#E8704A] mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#E8704A]"></div>
                   Para Compartir
                 </h4>
-                <ul className="space-y-2 text-sm text-[#3A3A3A]">
+                <ul className="space-y-2 text-nota text-[#3A3A3A]">
                   <li className="flex items-start gap-2">
                     <span className="text-[#D4AF8A] mt-1">•</span>
                     <span>Papas de San Lúcar</span>
@@ -83,14 +83,14 @@ export default function MenusGrupo() {
 
               {/* Postre */}
               <div className="border-t border-[#D4AF8A]/30 pt-4">
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">Postre</h4>
-                <p className="text-sm text-[#3A3A3A]">Pastel de queso</p>
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">Postre</h4>
+                <p className="text-nota text-[#3A3A3A]">Pastel de queso</p>
               </div>
 
               {/* Bebida */}
               <div className="border-t border-[#D4AF8A]/30 pt-4">
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">Bebida</h4>
-                <p className="text-sm text-[#3A3A3A]">
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">Bebida</h4>
+                <p className="text-nota text-[#3A3A3A]">
                   Sangría de vino (cada 4 personas) o agua
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function MenusGrupo() {
                 <div className="text-4xl sm:text-5xl font-bold text-[#E8704A] mb-2">
                   36,95€
                 </div>
-                <p className="text-xs text-[#3A3A3A] font-medium">
+                <p className="text-mini text-[#3A3A3A] font-medium">
                   Por persona
                 </p>
               </div>
@@ -110,10 +110,10 @@ export default function MenusGrupo() {
           {/* Menú de Grupo */}
           <article className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-[#D4AF8A]/20 hover:shadow-2xl transition-all duration-300">
             <div className="bg-gradient-to-r from-[#E8704A] to-[#D4764A] p-6 sm:p-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              <h3 className="text-pieza sm:text-3xl font-bold text-white mb-2">
                 Menú de Grupo
               </h3>
-              <p className="text-white/90 text-sm">
+              <p className="text-white/90 text-nota">
                 Experiencia completa con opciones
               </p>
             </div>
@@ -121,10 +121,10 @@ export default function MenusGrupo() {
             <div className="p-6 sm:p-8 space-y-6">
               {/* Para Compartir */}
               <div>
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">
                   Para Compartir (cada 4 personas)
                 </h4>
-                <ul className="space-y-2 text-sm text-[#3A3A3A]">
+                <ul className="space-y-2 text-nota text-[#3A3A3A]">
                   <li className="flex items-start gap-2">
                     <span className="text-[#D4AF8A] mt-1">•</span>
                     <span>Papas San Lúcar</span>
@@ -146,10 +146,10 @@ export default function MenusGrupo() {
 
               {/* Segundos */}
               <div className="border-t border-[#D4AF8A]/30 pt-4">
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">
                   Segundos a Elegir por Comensal
                 </h4>
-                <ul className="space-y-2 text-sm text-[#3A3A3A]">
+                <ul className="space-y-2 text-nota text-[#3A3A3A]">
                   <li className="flex items-start gap-2">
                     <span className="text-[#D4AF8A] mt-1">•</span>
                     <span>Brownie de buey con salsa oporto</span>
@@ -171,14 +171,14 @@ export default function MenusGrupo() {
 
               {/* Postre */}
               <div className="border-t border-[#D4AF8A]/30 pt-4">
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">Postre</h4>
-                <p className="text-sm text-[#3A3A3A]">Pastel de queso</p>
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">Postre</h4>
+                <p className="text-nota text-[#3A3A3A]">Pastel de queso</p>
               </div>
 
               {/* Bebida */}
               <div className="border-t border-[#D4AF8A]/30 pt-4">
-                <h4 className="text-lg font-bold text-[#E8704A] mb-3">Bebida</h4>
-                <p className="text-sm text-[#3A3A3A]">
+                <h4 className="text-precio font-bold text-[#E8704A] mb-3">Bebida</h4>
+                <p className="text-nota text-[#3A3A3A]">
                   Sangría de vino (cada 4 personas) o agua
                 </p>
               </div>
@@ -188,7 +188,7 @@ export default function MenusGrupo() {
                 <div className="text-4xl sm:text-5xl font-bold text-[#E8704A] mb-2">
                   40,95€
                 </div>
-                <p className="text-xs text-[#3A3A3A] font-medium">
+                <p className="text-mini text-[#3A3A3A] font-medium">
                   Por persona
                 </p>
               </div>
@@ -202,10 +202,10 @@ export default function MenusGrupo() {
           <div className="flex items-start gap-3">
             <Users className="text-[#E8704A] flex-shrink-0 mt-1" size={24} />
             <div>
-              <h4 className="font-bold text-[#0F3F5C] mb-2 text-lg">
+              <h4 className="font-bold text-[#0F3F5C] mb-2 text-precio">
                 Información Importante
               </h4>
-              <p className="text-sm text-[#3A3A3A] leading-relaxed">
+              <p className="text-nota text-[#3A3A3A] leading-relaxed">
                 <span className="font-semibold">Mínimo 12 comensales.</span> Estos menús están diseñados 
                 para grupos y celebraciones. Para reservas y consultas, contáctanos con antelación 
                 para garantizar la mejor experiencia.
@@ -220,7 +220,7 @@ export default function MenusGrupo() {
             href="#contacto"
             role="button"
             aria-label="Reserva menú de grupo en El Racó de Huelva"
-            className="inline-block w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-10 sm:px-12 py-4 sm:py-5 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-base sm:text-lg"
+            className="inline-block w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-10 sm:px-12 py-4 sm:py-5 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-guia"
           >
             Reservar Menú de Grupo
           </a>

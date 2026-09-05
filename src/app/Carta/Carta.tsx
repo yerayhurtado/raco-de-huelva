@@ -312,7 +312,7 @@ export default function Carta() {
           </Reveal>
 
           <Reveal delay={90} className="mt-6">
-            <p className="mx-auto max-w-[36rem] text-base leading-[1.75] text-crema/80 text-pretty sm:text-[17px]">
+            <p className="mx-auto max-w-[36rem] text-guia leading-[1.75] text-crema/80 text-pretty">
               Producto fresco de temporada. La disponibilidad varía según la captura del día.
             </p>
           </Reveal>
@@ -322,7 +322,7 @@ export default function Carta() {
           <div
             role="tablist"
             aria-label="Categorías de la carta"
-            className="flex flex-wrap justify-center gap-x-10 gap-y-2 border-b border-arena/25"
+            className="no-scrollbar flex snap-x snap-proximity gap-x-8 overflow-x-auto border-b border-arena/25 md:flex-wrap md:justify-center md:gap-x-10 md:overflow-visible"
           >
             {categories.map((category, index) => {
               const selected = category === activeCategory;
@@ -340,7 +340,7 @@ export default function Carta() {
                   aria-controls={`panel-${slug(category)}`}
                   onClick={() => selectCategory(category)}
                   onKeyDown={(event) => onTabKeyDown(event, index)}
-                  className={`tab relative cursor-pointer px-0.5 py-3 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors duration-[240ms] ${
+                  className={`tab relative flex-none snap-start cursor-pointer px-0.5 py-3 text-mini font-semibold tracking-[0.2em] whitespace-nowrap uppercase transition-colors duration-[240ms] ${
                     selected ? "text-coral-claro" : "text-crema/70 hover:text-coral-claro"
                   }`}
                 >
@@ -366,13 +366,13 @@ export default function Carta() {
               style={{ "--dish-delay": `${Math.min(index * 55, 620)}ms` } as React.CSSProperties}
             >
               <div className="flex items-baseline">
-                <h3 className="text-[22px] leading-[1.3] text-arena-clara">{item.nombre}</h3>
+                <h3 className="text-plato leading-[1.3] text-arena-clara">{item.nombre}</h3>
                 <span className="leader" aria-hidden="true" />
-                <span className="font-display text-[19px] whitespace-nowrap text-arena-clara tabular-nums">
+                <span className="font-display text-precio whitespace-nowrap text-arena-clara tabular-nums">
                   {item.precio}
                 </span>
               </div>
-              <p className="mt-2.5 max-w-[92%] text-sm leading-[1.66] text-crema/75 text-pretty">
+              <p className="mt-2.5 max-w-[92%] text-nota leading-[1.66] text-crema/75 text-pretty">
                 {item.descripcion}
               </p>
             </article>
@@ -381,16 +381,16 @@ export default function Carta() {
 
         <Reveal delay={80} className="mt-19">
           <div className="flex flex-col gap-6 border-y border-arena/35 py-8 sm:flex-row sm:gap-10">
-            <span className="flex-none pt-1 text-[10px] font-semibold tracking-[0.26em] text-arena uppercase">
+            <span className="flex-none pt-1 text-micro font-semibold tracking-[0.26em] text-arena uppercase">
               Antes de pedir
             </span>
             <div className="flex flex-col gap-2.5">
-              <p className="max-w-[49rem] text-[15px] leading-[1.7] text-crema/85">
+              <p className="max-w-[49rem] text-cuerpo leading-[1.7] text-crema/85">
                 Todo el producto es fresco y de temporada, así que la disponibilidad cambia
                 con la lonja. Si vienes por un plato concreto, llámanos antes y te lo
                 reservamos.
               </p>
-              <p className="max-w-[49rem] text-[13px] leading-[1.7] text-crema/65">
+              <p className="max-w-[49rem] text-nota leading-[1.7] text-crema/65">
                 Tenemos carta de alérgenos: pídesela al camarero. Si tienes alguna alergia o
                 intolerancia, dínoslo al sentarte.
               </p>
@@ -410,7 +410,7 @@ export default function Carta() {
             <a
               href="tel:+34658890607"
               aria-label="Llamar a El Racó de Huelva para reservar mesa"
-              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
             >
               Reservar mesa
             </a>

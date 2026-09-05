@@ -25,6 +25,17 @@
   --color-coral-fuerte: #aa3709;   /* hover del boton */
   --color-coral-claro: #f98661;    /* acento sobre marino — 4,57:1 */
 
+  /* Escala tipografica. Ocho pasos con nombre en lugar de los
+     diecinueve tamanos sueltos que habia puestos a ojo. */
+  --text-micro: 0.625rem;   /* 10px  versalitas */
+  --text-mini: 0.75rem;     /* 12px  botones y navegacion */
+  --text-nota: 0.8125rem;   /* 13px  letra pequena */
+  --text-cuerpo: 0.9375rem; /* 15px  texto corrido */
+  --text-guia: 1.0625rem;   /* 17px  entradillas */
+  --text-precio: 1.1875rem; /* 19px  precios y nombres cortos */
+  --text-plato: 1.375rem;   /* 22px  nombres de plato */
+  --text-pieza: 1.625rem;   /* 26px  destacados */
+
   /* Tipografia */
   --font-display: var(--font-marcellus), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-instrument), "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -192,6 +203,23 @@
 
 .tab:hover::after { transform: scaleX(0.45); }
 .tab[aria-selected="true"]::after { transform: scaleX(1); }
+
+/* Fila que se desplaza a lo ancho sin enseñar la barra de scroll.
+   Las ocho categorias de la carta ocupaban cuatro filas en un movil. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hueco para la barra de accion fija del movil, para que no tape el pie */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
 
 /* Guia de puntos entre el plato y su precio */
 .leader {

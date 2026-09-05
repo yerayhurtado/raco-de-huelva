@@ -89,7 +89,7 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={90} className="mt-6">
-              <p className="mx-auto max-w-[35rem] text-base leading-[1.75] text-crema/80 text-pretty sm:text-[17px]">
+              <p className="mx-auto max-w-[35rem] text-guia leading-[1.75] text-crema/80 text-pretty">
                 Reservamos por teléfono, persona a persona. Llámanos y te buscamos la
                 mejor mesa.
               </p>
@@ -105,7 +105,7 @@ export default function Contact() {
               >
                 <span className="flex items-center gap-3">
                   <Phone size={17} className="text-arena" aria-hidden="true" />
-                  <span className="text-[10px] font-semibold tracking-[0.28em] text-arena uppercase">
+                  <span className="text-micro font-semibold tracking-[0.28em] text-arena uppercase">
                     Reservas
                   </span>
                 </span>
@@ -115,7 +115,7 @@ export default function Contact() {
                 >
                   658 89 06 07
                 </a>
-                <p className="mt-4.5 text-sm leading-[1.7] text-crema/70">
+                <p className="mt-4.5 text-nota leading-[1.7] text-crema/70">
                   Atendemos de miércoles a domingo en horario de servicio. Para grupos de
                   más de ocho personas, llámanos con antelación.
                 </p>
@@ -123,7 +123,7 @@ export default function Contact() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex h-12 w-fit items-center gap-2.5 border border-arena/45 px-5 text-[11px] font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color] duration-200 hover:border-arena hover:text-arena-clara"
+                  className="mt-6 flex h-12 w-fit items-center gap-2.5 border border-arena/45 px-5 text-mini font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color] duration-200 hover:border-arena hover:text-arena-clara"
                 >
                   <IconoWhatsApp />
                   Escribir por WhatsApp
@@ -137,11 +137,11 @@ export default function Contact() {
               >
                 <span className="flex items-center gap-3">
                   <MapPin size={17} className="text-arena" aria-hidden="true" />
-                  <span className="text-[10px] font-semibold tracking-[0.28em] text-arena uppercase">
+                  <span className="text-micro font-semibold tracking-[0.28em] text-arena uppercase">
                     Dónde estamos
                   </span>
                 </span>
-                <address className="mt-4.5 font-display text-xl leading-[1.55] text-arena-clara not-italic sm:text-[22px]">
+                <address className="mt-4.5 font-display text-plato leading-[1.55] text-arena-clara not-italic">
                   Carrer Roger de Llúria, 7
                   <br />
                   08100 Mollet del Vallès, Barcelona
@@ -155,11 +155,11 @@ export default function Contact() {
               >
                 <span className="flex items-center gap-3">
                   <Clock size={17} className="text-arena" aria-hidden="true" />
-                  <span className="text-[10px] font-semibold tracking-[0.28em] text-arena uppercase">
+                  <span className="text-micro font-semibold tracking-[0.28em] text-arena uppercase">
                     Horario
                   </span>
                 </span>
-                <EstadoApertura className="mt-5 text-[15px] text-arena-clara" />
+                <EstadoApertura className="mt-5 text-cuerpo text-arena-clara" />
                 <dl className="mt-4 flex flex-col">
                   {horario.map((fila, index) => (
                     <div
@@ -168,9 +168,9 @@ export default function Contact() {
                         index < horario.length - 1 ? "border-b border-arena/18" : ""
                       }`}
                     >
-                      <dt className="text-[15px] text-crema/85">{fila.dias}</dt>
+                      <dt className="text-cuerpo text-crema/85">{fila.dias}</dt>
                       <dd
-                        className={`font-display text-[17px] ${
+                        className={`font-display text-guia ${
                           fila.cerrado ? "text-coral-claro" : "text-arena-clara"
                         }`}
                       >
@@ -188,7 +188,7 @@ export default function Contact() {
           </div>
 
           <Reveal delay={540} className="mt-22">
-            <span className="text-[10px] font-semibold tracking-[0.28em] text-arena uppercase">
+            <span className="text-micro font-semibold tracking-[0.28em] text-arena uppercase">
               Cómo reservar
             </span>
             <ol className="mt-7 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -200,7 +200,7 @@ export default function Contact() {
                   <span className="font-display text-3xl leading-none text-coral-claro">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-[15px] leading-[1.65] text-crema/85">{paso}</span>
+                  <span className="text-cuerpo leading-[1.65] text-crema/85">{paso}</span>
                 </li>
               ))}
             </ol>
@@ -213,7 +213,7 @@ export default function Contact() {
             <a
               href="tel:+34658890607"
               aria-label="Llamar ahora a El Racó de Huelva"
-              className="flex h-15 w-full items-center justify-center gap-3 bg-coral px-12 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+              className="flex h-15 w-full items-center justify-center gap-3 bg-coral px-12 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
             >
               <Phone size={16} aria-hidden="true" />
               Llamar ahora
@@ -223,7 +223,7 @@ export default function Contact() {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-15 w-full items-center justify-center gap-3 border border-arena/45 px-10 text-xs font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color,transform] duration-200 hover:border-arena hover:text-arena-clara active:scale-[0.975] sm:w-auto"
+              className="flex h-15 w-full items-center justify-center gap-3 border border-arena/45 px-10 text-mini font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color,transform] duration-200 hover:border-arena hover:text-arena-clara active:scale-[0.975] sm:w-auto"
             >
               <IconoWhatsApp />
               WhatsApp

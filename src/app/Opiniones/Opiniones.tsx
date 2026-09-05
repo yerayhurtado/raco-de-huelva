@@ -69,7 +69,7 @@ export default function Opiniones() {
               </h2>
             </Reveal>
             <Reveal delay={90}>
-              <p className="mt-6 max-w-[35rem] text-base leading-[1.75] text-tinta text-pretty sm:text-[17px]">
+              <p className="mt-6 max-w-[35rem] text-guia leading-[1.75] text-tinta text-pretty">
                 La opinión de quien se sienta a nuestra mesa es el único aval que nos
                 interesa.
               </p>
@@ -85,7 +85,7 @@ export default function Opiniones() {
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
               </svg>
               <span className="hidden h-6.5 w-px bg-bronce/30 sm:block" />
-              <span className="font-display text-2xl leading-none text-marino tabular-nums">
+              <span className="font-display text-pieza leading-none text-marino tabular-nums">
                 {googleRating}
               </span>
               <span className="flex gap-1" aria-hidden="true">
@@ -94,7 +94,7 @@ export default function Opiniones() {
                 ))}
                 <Star size={15} className="text-bronce/45" />
               </span>
-              <span className="text-xs tracking-[0.09em] text-tinta/75">
+              <span className="text-mini tracking-[0.09em] text-tinta/75">
                 valoración media en Google
               </span>
             </div>
@@ -112,11 +112,11 @@ export default function Opiniones() {
               className="mb-7 flex break-inside-avoid flex-col border border-bronce/25 bg-white/55 p-7 sm:p-9"
             >
               <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full border border-bronce/45 text-[13px] font-semibold tracking-[0.08em] text-bronce">
+                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full border border-bronce/45 text-nota font-semibold tracking-[0.08em] text-bronce">
                   {resena.iniciales}
                 </span>
                 <span className="flex flex-col gap-1.5 pt-0.5">
-                  <span className="font-display text-lg leading-[1.2] text-marino">
+                  <span className="font-display text-precio leading-[1.2] text-marino">
                     {resena.nombre}
                   </span>
                   <span className="flex gap-1" aria-label="5 de 5 estrellas">
@@ -127,11 +127,11 @@ export default function Opiniones() {
                 </span>
               </div>
 
-              <p className="mt-6 font-display text-[17px] leading-[1.7] text-marino text-pretty">
+              <p className="mt-6 font-display text-guia leading-[1.7] text-marino text-pretty">
                 {resena.texto}
               </p>
 
-              <span className="mt-6 flex flex-wrap gap-x-3 gap-y-1 border-t border-bronce/25 pt-4 text-[10px] font-semibold tracking-[0.22em] text-bronce uppercase">
+              <span className="mt-6 flex flex-wrap gap-x-3 gap-y-1 border-t border-bronce/25 pt-4 text-micro font-semibold tracking-[0.22em] text-bronce uppercase">
                 <span>{resena.ticket}</span>
                 <span aria-hidden="true">·</span>
                 <span className="normal-case tracking-[0.06em] text-tinta/65">
@@ -163,10 +163,10 @@ export default function Opiniones() {
                 <Play size={22} className="ml-0.5 fill-marino text-marino" aria-hidden="true" />
               </span>
               <span className="flex flex-1 flex-col gap-2">
-                <span className="text-[10px] font-semibold tracking-[0.28em] text-bronce uppercase">
+                <span className="text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
                   Reseña en vídeo
                 </span>
-                <span className="font-display text-xl leading-[1.25] text-marino sm:text-[28px]">
+                <span className="font-display text-plato leading-[1.25] text-marino">
                   Un recorrido completo por nuestra propuesta
                 </span>
               </span>
@@ -186,7 +186,7 @@ export default function Opiniones() {
             <a
               href="tel:+34658890607"
               aria-label="Llamar a El Racó de Huelva para reservar mesa"
-              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
             >
               Reservar mesa
             </a>

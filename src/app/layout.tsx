@@ -19,8 +19,13 @@ const instrument = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "El Racó de Huelva",
-  description: "Restaurante de mariscos de alta calidad importados desde Huelva",
+  // Sin metadataBase, las URLs de las tarjetas para compartir salen
+  // relativas y ni WhatsApp ni Google las resuelven.
+  metadataBase: new URL("https://elracodehuelva.es"),
+  title: "El Racó de Huelva | Marisco de Huelva en Mollet del Vallès",
+  description:
+    "Marisco fresco traído directamente desde Huelva y Sanlúcar, en el centro de Mollet del Vallès. Reservas por teléfono y WhatsApp.",
+  alternates: { canonical: "/" },
 
   robots: {
     index: true,
@@ -29,11 +34,19 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "El Racó de Huelva",
-    description: "Mariscos de alta calidad importados desde Huelva",
+    description:
+      "Marisco fresco traído directamente desde Huelva y Sanlúcar, en Mollet del Vallès.",
     url: "https://elracodehuelva.es",
     siteName: "El Racó de Huelva",
     locale: "es_ES",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "El Racó de Huelva",
+    description:
+      "Marisco fresco traído directamente desde Huelva y Sanlúcar, en Mollet del Vallès.",
   },
 };
 

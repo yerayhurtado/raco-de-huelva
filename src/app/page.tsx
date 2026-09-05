@@ -6,6 +6,7 @@ import Carta from "./Carta/Carta";
 import Contact from "./Contacto/Contacto";
 import Footer from "./Footer/Footer";
 import Opiniones from "./Opiniones/Opiniones";
+import BarraMovil from "./components/BarraMovil";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BarraMovil />
     </>
   );
 }

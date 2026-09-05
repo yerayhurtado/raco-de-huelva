@@ -49,7 +49,7 @@ export default function MenuDiario() {
           </Reveal>
 
           <Reveal delay={90} className="mt-6">
-            <p className="mx-auto max-w-[35rem] text-base leading-[1.75] text-crema/80 text-pretty sm:text-[17px]">
+            <p className="mx-auto max-w-[35rem] text-guia leading-[1.75] text-crema/80 text-pretty">
               Dos platos a elegir de la misma cocina que la carta, de miércoles a viernes
               al mediodía.
             </p>
@@ -64,14 +64,14 @@ export default function MenuDiario() {
 
         <div className="mt-20 grid grid-cols-1 gap-x-19 gap-y-14 lg:grid-cols-2">
           <Reveal delay={240}>
-            <h3 className="border-b border-arena/35 pb-4 text-[10px] font-semibold tracking-[0.26em] text-arena uppercase">
+            <h3 className="border-b border-arena/35 pb-4 text-micro font-semibold tracking-[0.26em] text-arena uppercase">
               Primeros
             </h3>
             <ul className="flex flex-col">
               {primeros.map((plato) => (
                 <li
                   key={plato}
-                  className="border-b border-arena/15 py-4 text-[15px] leading-[1.6] text-crema/90 last:border-0"
+                  className="border-b border-arena/15 py-4 text-cuerpo leading-[1.6] text-crema/90 last:border-0"
                 >
                   {plato}
                 </li>
@@ -80,14 +80,14 @@ export default function MenuDiario() {
           </Reveal>
 
           <Reveal delay={320}>
-            <h3 className="border-b border-arena/35 pb-4 text-[10px] font-semibold tracking-[0.26em] text-arena uppercase">
+            <h3 className="border-b border-arena/35 pb-4 text-micro font-semibold tracking-[0.26em] text-arena uppercase">
               Segundos
             </h3>
             <ul className="flex flex-col">
               {segundos.map((plato) => (
                 <li
                   key={plato}
-                  className="border-b border-arena/15 py-4 text-[15px] leading-[1.6] text-crema/90 last:border-0"
+                  className="border-b border-arena/15 py-4 text-cuerpo leading-[1.6] text-crema/90 last:border-0"
                 >
                   {plato}
                 </li>
@@ -100,17 +100,17 @@ export default function MenuDiario() {
           <dl className="grid grid-cols-1 gap-x-10 gap-y-8 border-y border-arena/35 py-9 sm:grid-cols-3">
             {incluye.map((fila) => (
               <div key={fila.que} className="flex flex-col gap-2.5">
-                <dt className="text-[10px] font-semibold tracking-[0.26em] text-arena uppercase">
+                <dt className="text-micro font-semibold tracking-[0.26em] text-arena uppercase">
                   {fila.que}
                 </dt>
-                <dd className="font-display text-xl text-arena-clara">{fila.detalle}</dd>
+                <dd className="font-display text-plato text-arena-clara">{fila.detalle}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
 
         <Reveal delay={80} className="mt-10">
-          <p className="text-center text-sm leading-[1.7] text-crema/70">
+          <p className="text-center text-nota leading-[1.7] text-crema/70">
             Servicio tupper: llévate lo que no te acabes por 1 € más.
           </p>
         </Reveal>
@@ -127,7 +127,7 @@ export default function MenuDiario() {
             <a
               href="tel:+34658890607"
               aria-label="Llamar a El Racó de Huelva para reservar el menú del día"
-              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+              className="flex h-14 w-full items-center justify-center bg-coral px-10 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
             >
               Reservar mesa
             </a>

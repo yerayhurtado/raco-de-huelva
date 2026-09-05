@@ -63,11 +63,11 @@ export default function Mapa() {
       <div className="relative flex flex-col">
         <span className="flex items-center gap-2.5">
           <MapPin size={17} className="text-coral-claro" aria-hidden="true" />
-          <span className="text-[10px] font-semibold tracking-[0.28em] text-arena uppercase">
+          <span className="text-micro font-semibold tracking-[0.28em] text-arena uppercase">
             Cómo llegar
           </span>
         </span>
-        <p className="mt-4 max-w-[24rem] font-display text-[26px] leading-[1.35] text-arena-clara">
+        <p className="mt-4 max-w-[24rem] font-display text-pieza leading-[1.35] text-arena-clara">
           A dos minutos a pie de la estación de Mollet-Sant Fost
         </p>
 
@@ -75,7 +75,7 @@ export default function Mapa() {
           <button
             type="button"
             onClick={() => setCargado(true)}
-            className="flex h-12 cursor-pointer items-center justify-center border border-arena/45 px-6 text-[11px] font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color] duration-200 hover:border-arena hover:text-arena-clara active:scale-[0.975]"
+            className="flex h-12 cursor-pointer items-center justify-center border border-arena/45 px-6 text-mini font-semibold tracking-[0.19em] text-arena uppercase transition-[border-color,color] duration-200 hover:border-arena hover:text-arena-clara active:scale-[0.975]"
           >
             Ver el mapa aquí
           </button>
@@ -83,7 +83,7 @@ export default function Mapa() {
             href={ENLACE}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex h-12 items-center gap-2.5 text-[11px] font-semibold tracking-[0.19em] text-arena uppercase transition-colors duration-200 hover:text-arena-clara"
+            className="group flex h-12 items-center gap-2.5 text-mini font-semibold tracking-[0.19em] text-arena uppercase transition-colors duration-200 hover:text-arena-clara"
           >
             Abrir en Google Maps
             <ArrowRight
@@ -94,7 +94,7 @@ export default function Mapa() {
           </a>
         </div>
 
-        <p className="mt-5 text-xs leading-[1.6] text-crema/50">
+        <p className="mt-5 text-mini leading-[1.6] text-crema/50">
           El mapa lo carga Google. No se carga nada hasta que lo pides.
         </p>
       </div>

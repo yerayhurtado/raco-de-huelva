@@ -87,7 +87,7 @@ export default function Hero() {
             />
 
             <p
-              className="hero-in mx-auto mt-7 max-w-[38rem] text-base leading-[1.75] text-crema/85 text-pretty sm:mt-8 sm:text-lg"
+              className="hero-in mx-auto mt-7 max-w-[38rem] text-guia leading-[1.75] text-crema/85 text-pretty sm:mt-8"
               style={{ "--d": "200ms" } as React.CSSProperties}
             >
               Marisco fresco traído directamente desde Huelva y Sanlúcar, tratado con
@@ -101,14 +101,14 @@ export default function Hero() {
               <a
                 href="tel:+34658890607"
                 aria-label="Llamar a El Racó de Huelva para reservar mesa"
-                className="flex h-14 w-full items-center justify-center bg-coral px-10 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+                className="flex h-14 w-full items-center justify-center bg-coral px-10 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
               >
                 Reservar mesa
               </a>
               <a
                 href="#carta"
                 aria-label="Ver la carta completa"
-                className="group flex h-14 w-full items-center justify-center gap-2.5 border border-arena/45 px-8 text-xs tracking-[0.19em] text-arena uppercase transition-colors duration-200 hover:border-arena sm:w-auto sm:border-x-0 sm:border-t-0 sm:border-b sm:px-1"
+                className="group flex h-14 w-full items-center justify-center gap-2.5 border border-arena/45 px-8 text-mini tracking-[0.19em] text-arena uppercase transition-colors duration-200 hover:border-arena sm:w-auto sm:border-x-0 sm:border-t-0 sm:border-b sm:px-1"
               >
                 Ver la carta
                 <ArrowRight
@@ -120,7 +120,7 @@ export default function Hero() {
             </div>
 
             <div
-              className="hero-in mt-11 flex flex-col items-center gap-3 text-xs tracking-[0.08em] text-crema/75 sm:mt-13 sm:flex-row sm:gap-5"
+              className="hero-in mt-11 flex flex-col items-center gap-3 text-mini tracking-[0.08em] text-crema/75 sm:mt-13 sm:flex-row sm:gap-5"
               style={{ "--d": "440ms" } as React.CSSProperties}
             >
               <span className="flex items-center gap-2">
@@ -139,7 +139,7 @@ export default function Hero() {
           className="hero-in absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex"
           style={{ "--d": "640ms" } as React.CSSProperties}
         >
-          <span className="text-[10px] tracking-[0.3em] text-arena/70 uppercase">
+          <span className="text-micro tracking-[0.3em] text-arena/70 uppercase">
             Descubre
           </span>
           <ChevronDown size={18} className="cue text-arena" aria-hidden="true" />

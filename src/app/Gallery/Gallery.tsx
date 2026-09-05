@@ -143,7 +143,7 @@ export default function Gallery() {
             </Reveal>
 
             <Reveal delay={90}>
-              <p className="max-w-[27rem] text-base leading-[1.75] text-tinta text-pretty lg:text-right sm:text-[17px]">
+              <p className="max-w-[27rem] text-guia leading-[1.75] text-tinta text-pretty lg:text-right">
                 Una selección de lo que sale cada día de nuestra cocina, elaborada con
                 producto fresco de Huelva y Sanlúcar.
               </p>
@@ -182,17 +182,17 @@ export default function Gallery() {
                   />
                 </div>
 
-                <span className="mt-5.5 text-[10px] font-semibold tracking-[0.26em] text-bronce uppercase">
+                <span className="mt-5.5 text-micro font-semibold tracking-[0.26em] text-bronce uppercase">
                   {plato.categoria}
                 </span>
-                <h3 className="mt-2.5 text-[25px] leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral">
+                <h3 className="mt-2.5 text-pieza leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral">
                   {plato.nombre}
                 </h3>
                 <span
                   className="mt-3.5 block h-px w-0 bg-bronce transition-[width] duration-500 ease-[var(--ease-suave)] group-hover:w-11"
                   aria-hidden="true"
                 />
-                <p className="mt-3.5 max-w-[34rem] text-[15px] leading-[1.68] text-tinta text-pretty">
+                <p className="mt-3.5 max-w-[34rem] text-cuerpo leading-[1.68] text-tinta text-pretty">
                   {plato.descripcion}
                 </p>
               </Reveal>
@@ -208,7 +208,7 @@ export default function Gallery() {
               {null}
             </Reveal>
             <Reveal delay={80}>
-              <p className="text-center text-[15px] text-tinta">
+              <p className="text-center text-cuerpo text-tinta">
                 Pregunta por la sugerencia del día.
               </p>
             </Reveal>
@@ -216,7 +216,7 @@ export default function Gallery() {
               <a
                 href="tel:+34658890607"
                 aria-label="Llamar a El Racó de Huelva para consultar disponibilidad"
-                className="flex h-14 w-full items-center justify-center bg-coral px-10 text-xs font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
+                className="flex h-14 w-full items-center justify-center bg-coral px-10 text-mini font-semibold tracking-[0.19em] text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975] sm:w-auto"
               >
                 Consultar disponibilidad
               </a>

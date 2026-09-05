@@ -96,10 +96,10 @@ export default function Header() {
                 />
               </span>
               <span className="flex flex-col gap-1">
-                <span className="font-display text-xl leading-none tracking-[0.055em] text-crema">
+                <span className="font-display text-plato leading-none tracking-[0.055em] text-crema">
                   El Racó de Huelva
                 </span>
-                <span className="flex items-center gap-1.5 text-[10px] leading-none tracking-[0.24em] text-arena/85 uppercase">
+                <span className="flex items-center gap-1.5 text-micro leading-none tracking-[0.24em] text-arena/85 uppercase">
                   <MapPin size={11} aria-hidden="true" focusable="false" />
                   Mollet del Vallès
                 </span>
@@ -114,7 +114,7 @@ export default function Header() {
                       href={item.href}
                       title={`Ir a la sección ${item.label}`}
                       aria-current={currentSection === item.id ? "page" : undefined}
-                      className={`nav-link text-[11px] tracking-[0.19em] uppercase transition-colors duration-200 hover:text-arena ${
+                      className={`nav-link text-mini tracking-[0.19em] uppercase transition-colors duration-200 hover:text-arena ${
                         currentSection === item.id ? "text-arena" : "text-crema"
                       }`}
                     >
@@ -128,7 +128,7 @@ export default function Header() {
             <a
               href="tel:+34658890607"
               aria-label="Llamar a El Racó de Huelva para reservar mesa"
-              className="flex flex-shrink-0 items-center gap-2.5 bg-coral px-6 py-3 text-[11px] font-semibold tracking-[0.17em] whitespace-nowrap text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975]"
+              className="flex flex-shrink-0 items-center gap-2.5 bg-coral px-6 py-3 text-mini font-semibold tracking-[0.17em] whitespace-nowrap text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975]"
             >
               <Phone size={14} aria-hidden="true" focusable="false" />
               Reservar
@@ -148,10 +148,10 @@ export default function Header() {
                 />
               </span>
               <span className="flex flex-col gap-0.5">
-                <span className="font-display text-base leading-none tracking-[0.04em] text-crema">
+                <span className="font-display text-guia leading-none tracking-[0.04em] text-crema">
                   El Racó de Huelva
                 </span>
-                <span className="text-[9px] leading-none tracking-[0.2em] text-arena/85 uppercase">
+                <span className="text-micro leading-none tracking-[0.2em] text-arena/85 uppercase">
                   Mollet del Vallès
                 </span>
               </span>
@@ -182,7 +182,7 @@ export default function Header() {
                     <a
                       href={item.href}
                       title={`Ir a la sección ${item.label}`}
-                      className="flex h-13 items-center border-b border-arena/15 text-[12px] tracking-[0.19em] text-crema uppercase"
+                      className="flex h-13 items-center border-b border-arena/15 text-mini tracking-[0.19em] text-crema uppercase"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -192,7 +192,7 @@ export default function Header() {
               </ul>
               <a
                 href="tel:+34658890607"
-                className="mt-5 flex h-13 items-center justify-center gap-2.5 bg-coral text-[12px] font-semibold tracking-[0.19em] text-white uppercase transition-transform duration-150 active:scale-[0.975]"
+                className="mt-5 flex h-13 items-center justify-center gap-2.5 bg-coral text-mini font-semibold tracking-[0.19em] text-white uppercase transition-transform duration-150 active:scale-[0.975]"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Phone size={15} aria-hidden="true" focusable="false" />

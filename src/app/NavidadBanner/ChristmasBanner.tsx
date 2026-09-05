@@ -24,11 +24,11 @@ export default function ChristmasAnnouncement() {
         {/* Badge decorativo */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-[#D4AF8A]/20 backdrop-blur-sm border border-[#D4AF8A] px-4 py-2 rounded-full">
-            <span className="text-2xl animate-bounce">🎄</span>
-            <span className="text-xs sm:text-sm font-semibold text-[#D4AF8A] uppercase tracking-wider">
+            <span className="text-pieza animate-bounce">🎄</span>
+            <span className="text-mini font-semibold text-[#D4AF8A] uppercase tracking-wider">
               Menú Especial Fiestas 2024-2025
             </span>
-            <span className="text-2xl animate-bounce delay-300">🎄</span>
+            <span className="text-pieza animate-bounce delay-300">🎄</span>
           </div>
         </div>
 
@@ -37,7 +37,7 @@ export default function ChristmasAnnouncement() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">
             Menú Exclusivo de Fiestas
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-[#F9F6F1] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-guia lg:text-plato text-[#F9F6F1] max-w-3xl mx-auto leading-relaxed">
             Celebra Navidad, San Esteban y Año Nuevo con una experiencia gastronómica única: 
             los mejores mariscos de Huelva en platos especialmente creados para estas fechas especiales
           </p>
@@ -50,10 +50,10 @@ export default function ChristmasAnnouncement() {
             <div className="inline-flex items-center justify-center w-14 h-14 bg-[#D4AF8A] rounded-full mb-4">
               <ChefHat className="w-7 h-7 text-[#0F3F5C]" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className="text-precio font-bold text-white mb-2">
               Menú Gourmet
             </h3>
-            <p className="text-sm text-[#F9F6F1]/90">
+            <p className="text-nota text-[#F9F6F1]/90">
               Creaciones exclusivas del chef con mariscos premium
             </p>
           </div>
@@ -63,10 +63,10 @@ export default function ChristmasAnnouncement() {
             <div className="inline-flex items-center justify-center w-14 h-14 bg-[#D4AF8A] rounded-full mb-4">
               <Calendar className="w-7 h-7 text-[#0F3F5C]" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className="text-precio font-bold text-white mb-2">
               Fechas Especiales
             </h3>
-            <p className="text-sm text-[#F9F6F1]/90">
+            <p className="text-nota text-[#F9F6F1]/90">
               Navidad (25 Dic) • San Esteban (26 Dic) • Año Nuevo (1 Ene)
             </p>
           </div>
@@ -76,10 +76,10 @@ export default function ChristmasAnnouncement() {
             <div className="inline-flex items-center justify-center w-14 h-14 bg-[#D4AF8A] rounded-full mb-4">
               <Phone className="w-7 h-7 text-[#0F3F5C]" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className="text-precio font-bold text-white mb-2">
               Reserva Ya
             </h3>
-            <p className="text-sm text-[#F9F6F1]/90">
+            <p className="text-nota text-[#F9F6F1]/90">
               Plazas limitadas, no te quedes sin tu mesa
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function ChristmasAnnouncement() {
             href="/menu-navidad.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-10 py-4 font-bold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-base flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-[#E8704A] hover:bg-[#D4764A] text-white px-10 py-4 font-bold rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-guia flex items-center justify-center gap-2"
           >
             <Download className="w-5 h-5" />
             <span>Ver Menú (PDF)</span>
@@ -99,7 +99,7 @@ export default function ChristmasAnnouncement() {
           
           <a
             href="tel:658890607"
-            className="w-full sm:w-auto border-2 border-[#D4AF8A] text-[#D4AF8A] hover:bg-[#D4AF8A]/10 px-10 py-4 font-bold rounded-lg transition-all duration-300 text-base flex items-center justify-center gap-2"
+            className="w-full sm:w-auto border-2 border-[#D4AF8A] text-[#D4AF8A] hover:bg-[#D4AF8A]/10 px-10 py-4 font-bold rounded-lg transition-all duration-300 text-guia flex items-center justify-center gap-2"
           >
             <Phone className="w-5 h-5" />
             <span>Llamar para Reservar</span>
@@ -107,7 +107,7 @@ export default function ChristmasAnnouncement() {
         </div>
 
         {/* Nota final */}
-        <p className="text-center text-xs sm:text-sm text-[#F9F6F1]/70 mt-8">
+        <p className="text-center text-mini text-[#F9F6F1]/70 mt-8">
           * Menú disponible para Navidad (25 Dic), San Esteban (26 Dic) y Año Nuevo (1 Ene) • Reserva previa obligatoria
         </p>
       </div>
