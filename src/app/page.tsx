@@ -14,12 +14,13 @@ export default function Home() {
       <main id="contenido">
         <Hero />
         <Gallery />
-        {/* Alternancia oscuro / claro. Si se reactiva el menú del día,
-            que es oscuro, va aquí: entre Galería y Opiniones no rompe
-            el ritmo, pero entre las dos secciones crema sí. */}
+        {/* El orden sigue lo que la gente viene a buscar: la carta es el
+            contenido más pedido de la web de un restaurante, y las reseñas
+            tranquilizan justo después de ver los precios. La alternancia
+            oscuro / claro la lleva el fondo de cada sección, no el orden. */}
         {/* <MenuDiario /> */}
-        <Opiniones />
         <Carta />
+        <Opiniones />
         <Contact />
       </main>
       <Footer />

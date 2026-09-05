@@ -299,20 +299,20 @@ export default function Carta() {
   return (
     <section
       id="carta"
-      className="bg-crema px-5 py-24 sm:px-6 sm:py-32 lg:px-28"
+      className="bg-marino-oscuro px-5 py-24 sm:px-6 sm:py-32 lg:px-28"
       aria-label="Carta completa - El Racó de Huelva"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center text-center">
 
           <Reveal>
-            <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.1] text-marino">
+            <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.1] text-arena-clara">
               La carta
             </h2>
           </Reveal>
 
           <Reveal delay={90} className="mt-6">
-            <p className="mx-auto max-w-[36rem] text-base leading-[1.75] text-tinta text-pretty sm:text-[17px]">
+            <p className="mx-auto max-w-[36rem] text-base leading-[1.75] text-crema/80 text-pretty sm:text-[17px]">
               Producto fresco de temporada. La disponibilidad varía según la captura del día.
             </p>
           </Reveal>
@@ -322,7 +322,7 @@ export default function Carta() {
           <div
             role="tablist"
             aria-label="Categorías de la carta"
-            className="flex flex-wrap justify-center gap-x-10 gap-y-2 border-b border-marino/12"
+            className="flex flex-wrap justify-center gap-x-10 gap-y-2 border-b border-arena/25"
           >
             {categories.map((category, index) => {
               const selected = category === activeCategory;
@@ -341,7 +341,7 @@ export default function Carta() {
                   onClick={() => selectCategory(category)}
                   onKeyDown={(event) => onTabKeyDown(event, index)}
                   className={`tab relative cursor-pointer px-0.5 py-3 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors duration-[240ms] ${
-                    selected ? "text-coral" : "text-marino hover:text-coral"
+                    selected ? "text-coral-claro" : "text-crema/70 hover:text-coral-claro"
                   }`}
                 >
                   {category}
@@ -362,17 +362,17 @@ export default function Carta() {
               // La clave incluye la pasada para que el cambio de pestaña
               // remonte las filas y la entrada escalonada se reproduzca.
               key={`${pass}-${item.nombre}`}
-              className="dish-in flex break-inside-avoid flex-col border-b border-bronce/25 pt-5.5 pb-6"
+              className="dish-in flex break-inside-avoid flex-col border-b border-arena/20 pt-5.5 pb-6"
               style={{ "--dish-delay": `${Math.min(index * 55, 620)}ms` } as React.CSSProperties}
             >
               <div className="flex items-baseline">
-                <h3 className="text-[22px] leading-[1.3] text-marino">{item.nombre}</h3>
+                <h3 className="text-[22px] leading-[1.3] text-arena-clara">{item.nombre}</h3>
                 <span className="leader" aria-hidden="true" />
-                <span className="font-display text-[19px] whitespace-nowrap text-marino tabular-nums">
+                <span className="font-display text-[19px] whitespace-nowrap text-arena-clara tabular-nums">
                   {item.precio}
                 </span>
               </div>
-              <p className="mt-2.5 max-w-[92%] text-sm leading-[1.66] text-tinta text-pretty">
+              <p className="mt-2.5 max-w-[92%] text-sm leading-[1.66] text-crema/75 text-pretty">
                 {item.descripcion}
               </p>
             </article>
@@ -380,17 +380,17 @@ export default function Carta() {
         </div>
 
         <Reveal delay={80} className="mt-19">
-          <div className="flex flex-col gap-6 border-y border-bronce/40 py-8 sm:flex-row sm:gap-10">
-            <span className="flex-none pt-1 text-[10px] font-semibold tracking-[0.26em] text-bronce uppercase">
+          <div className="flex flex-col gap-6 border-y border-arena/35 py-8 sm:flex-row sm:gap-10">
+            <span className="flex-none pt-1 text-[10px] font-semibold tracking-[0.26em] text-arena uppercase">
               Antes de pedir
             </span>
             <div className="flex flex-col gap-2.5">
-              <p className="max-w-[49rem] text-[15px] leading-[1.7] text-tinta">
+              <p className="max-w-[49rem] text-[15px] leading-[1.7] text-crema/85">
                 Todo el producto es fresco y de temporada, así que la disponibilidad cambia
                 con la lonja. Si vienes por un plato concreto, llámanos antes y te lo
                 reservamos.
               </p>
-              <p className="max-w-[49rem] text-[13px] leading-[1.7] text-tinta/85">
+              <p className="max-w-[49rem] text-[13px] leading-[1.7] text-crema/65">
                 Tenemos carta de alérgenos: pídesela al camarero. Si tienes alguna alergia o
                 intolerancia, dínoslo al sentarte.
               </p>
@@ -402,7 +402,7 @@ export default function Carta() {
           <Reveal
             variant="rule-draw"
             as="span"
-            className="block h-px w-16 origin-center bg-bronce/60"
+            className="block h-px w-16 origin-center bg-arena/70"
           >
             {null}
           </Reveal>
