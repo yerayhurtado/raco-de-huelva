@@ -97,11 +97,11 @@ export default function Contact() {
           </div>
 
           <div className="mt-20 grid grid-cols-1 gap-7 lg:grid-cols-2">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-11">
               <Reveal
                 as="article"
                 delay={300}
-                className="border border-arena/40 bg-crema/5 p-8 transition-[border-color,background-color] duration-300 hover:border-arena/60 hover:bg-crema/7 sm:p-11"
+                className="border-t border-arena/30 pt-9"
               >
                 <span className="flex items-center gap-3">
                   <Phone size={17} className="text-arena" aria-hidden="true" />
@@ -133,7 +133,7 @@ export default function Contact() {
               <Reveal
                 as="article"
                 delay={380}
-                className="border border-arena/25 bg-crema/3 p-8 transition-[border-color,background-color] duration-300 hover:border-arena/50 hover:bg-crema/7 sm:p-11"
+                className="border-t border-arena/30 pt-9"
               >
                 <span className="flex items-center gap-3">
                   <MapPin size={17} className="text-arena" aria-hidden="true" />
@@ -151,7 +151,7 @@ export default function Contact() {
               <Reveal
                 as="article"
                 delay={460}
-                className="border border-arena/25 bg-crema/3 p-8 transition-[border-color,background-color] duration-300 hover:border-arena/50 hover:bg-crema/7 sm:p-11"
+                className="border-t border-arena/30 pt-9"
               >
                 <span className="flex items-center gap-3">
                   <Clock size={17} className="text-arena" aria-hidden="true" />

@@ -103,13 +103,13 @@ export default function Opiniones() {
 
         {/* Mosaico en vez de carrusel: el activo es el volumen de reseñas,
             y de una en una se esconde justo eso. */}
-        <div className="mt-16 gap-x-7 sm:mt-20 md:columns-2 xl:columns-3">
+        <div className="mt-16 gap-x-14 sm:mt-24 md:columns-2 xl:columns-3">
           {resenas.map((resena, index) => (
             <Reveal
               key={resena.nombre}
               as="article"
               delay={index * 70}
-              className="mb-7 flex break-inside-avoid flex-col border border-bronce/25 bg-white/55 p-7 sm:p-9"
+              className="mb-14 flex break-inside-avoid flex-col border-t border-bronce/35 pt-8"
             >
               <div className="flex items-start gap-4">
                 <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full border border-bronce/45 text-nota font-semibold tracking-[0.08em] text-bronce">

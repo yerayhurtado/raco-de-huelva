@@ -153,7 +153,9 @@
   50%      { transform: translateY(7px); opacity: 1; }
 }
 
-/* Entrada escalonada de los platos de la carta al cambiar de pestaña */
+/* Entrada escalonada de los platos de la carta al cambiar de pestaña.
+   Esta NO se ata al scroll a propósito: la dispara un clic, no el
+   desplazamiento, y una animación ligada al scroll no avanzaría. */
 .dish-in {
   animation: rh-dish 460ms var(--ease-suave) both;
   animation-delay: var(--dish-delay, 0ms);

@@ -20,7 +20,7 @@ export default function Mapa() {
 
   if (cargado) {
     return (
-      <div className="relative h-full min-h-125 overflow-hidden border border-arena/25">
+      <div className="relative h-full min-h-125 overflow-hidden border-t border-arena/30">
         <iframe
           src={EMBED}
           title="Ubicación de El Racó de Huelva en Google Maps"
@@ -33,11 +33,11 @@ export default function Mapa() {
   }
 
   return (
-    <div className="relative flex h-full min-h-125 flex-col justify-end overflow-hidden border border-arena/25 bg-marino p-9 sm:p-11">
+    <div className="relative flex h-full min-h-125 flex-col justify-end overflow-hidden border-t border-arena/30 bg-marino/70 p-9 sm:p-11">
       <svg
         viewBox="0 0 640 640"
         preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 h-full w-full opacity-30"
+        className="absolute inset-0 h-full w-full opacity-45"
         aria-hidden="true"
       >
         <g stroke="#D4AF8A" strokeWidth="1" fill="none" opacity="0.5">
