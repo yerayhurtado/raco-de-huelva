@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
-import { Marcellus, Lato } from "next/font/google";
+import { Marcellus, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-// Importamos las fuentes
+// Marcellus: capital romana de inscripcion. Un solo peso, y el diseño usa uno.
 const marcellus = Marcellus({
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
   variable: "--font-marcellus",
 });
 
-const lato = Lato({
+// Instrument Sans sustituye a Lato: mas caracter en versalitas pequeñas.
+// Es variable, asi que no se declara peso: se piden los que hagan falta.
+const instrument = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
+  display: "swap",
+  variable: "--font-instrument",
 });
 
 export const metadata: Metadata = {
   title: "El Racó de Huelva",
   description: "Restaurante de mariscos de alta calidad importados desde Huelva",
 
-    robots: {
+  robots: {
     index: true,
     follow: true,
   },
@@ -38,10 +41,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${marcellus.variable} ${lato.variable}`}>
-      <body>
-        {children}
-      </body>
+    <html lang="es" className={`${marcellus.variable} ${instrument.variable}`}>
+      <head>
+        {/* Marca que hay JS antes del primer pintado. Sin esto, si el script
+            fallase, todo lo que entra al hacer scroll quedaria invisible. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,32 +1,52 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MapPin, Calendar, Menu, X } from "lucide-react";
+import { MapPin, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+
+const navItems = [
+  { label: "Inicio", href: "#hero", id: "hero" },
+  { label: "Galería", href: "#galeria", id: "galeria" },
+  { label: "Carta", href: "#carta", id: "carta" },
+  { label: "Opiniones", href: "#opiniones", id: "opiniones" },
+  { label: "Contacto", href: "#contacto", id: "contacto" },
+];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentSection] = useState("hero"); 
+  const [currentSection, setCurrentSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "Inicio", href: "#hero" },
-    { label: "Galería", href: "#galeria" },
-    { label: "Opiniones", href: "#opiniones" },
-    { label: "Carta", href: "#carta" },
-    // { label: "Menú del Día", href: "#menu" },
-    // { label: "Menús de Grupo", href: "#menus-grupo" },
-    { label: "Contacto", href: "#contacto" },
-  ];
+  // Marca en la navegacion la seccion que se esta leyendo. El original
+  // guardaba este estado pero no lo actualizaba nunca.
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setCurrentSection(visible.target.id);
+      },
+      { rootMargin: "-96px 0px -55% 0px", threshold: [0.1, 0.5] },
+    );
+
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((node): node is HTMLElement => node !== null);
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -37,73 +57,66 @@ export default function Header() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Restaurant",
-            "name": "El Racó de Huelva",
-            "address": {
+            name: "El Racó de Huelva",
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "Carrer Roger de Llúria, 7",
-              "addressLocality": "Mollet del Vallès",
-              "addressCountry": "ES"
+              streetAddress: "Carrer Roger de Llúria, 7",
+              addressLocality: "Mollet del Vallès",
+              addressCountry: "ES",
             },
-            "telephone": "+34 658 890 607",
-            "servesCuisine": "Mediterránea"
-          })
+            telephone: "+34 658 890 607",
+            servesCuisine: "Mediterránea",
+          }),
         }}
       />
 
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 z-50 w-full border-b transition-[background-color,border-color] duration-300 ease-[var(--ease-suave)] backdrop-blur-md ${
           scrolled
-            ? "bg-[#0F3F5C]/95 shadow-lg backdrop-blur-md"
-            : "bg-[#0F3F5C]/80 shadow-md backdrop-blur-sm"
+            ? "border-arena/25 bg-marino-oscuro/90"
+            : "border-arena/15 bg-marino-oscuro/45"
         }`}
         role="banner"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4">
-          {/* Desktop Layout */}
-          <div className="hidden md:flex items-center justify-between gap-8">
-            {/* Logo + Info (Izquierda) */}
-            <div className="flex items-center gap-3 flex-shrink-0">
-              <Link href="/" className="flex items-center gap-3">
-                {/* Logo del restaurante con fondo blanco circular */}
-                <div className="w-16 h-16 lg:w-20 lg:h-20 relative flex-shrink-0 bg-white rounded-full p-2 shadow-md">
-                  <Image
-                    src="/logo.png"
-                    alt="Logo El Racó de Huelva"
-                    fill
-                    className="object-contain p-1"
-                    priority
-                  />
-                </div>
-                {/* Nombre y ubicación */}
-                <div className="flex flex-col">
-                  <h2 className="text-xl lg:text-2xl font-bold text-[#D4AF8A]">
-                    El Racó de Huelva
-                  </h2>
-                  <div className="flex items-center gap-1 text-xs lg:text-sm text-[#F9F6F1]">
-                    <MapPin size={14} aria-hidden="true" focusable="false" />
-                    <span>Carrer Roger de Llúria, 7, Mollet</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          {/* Escritorio */}
+          <div className="hidden items-center justify-between gap-10 py-4 md:flex">
+            <Link href="/" className="flex flex-shrink-0 items-center gap-3.5">
+              <span className="flex h-13 w-13 flex-shrink-0 items-center justify-center rounded-full bg-crema p-1.5">
+                {/* width/height explicitos en vez de fill: con fill, Next pedia el
+                    logo a 3840px de ancho para una caja de 52px. Y sin priority:
+                    el logo aparece dos veces (escritorio y movil) y dos precargas
+                    del mismo recurso se pisaban; ademas el LCP es la foto del hero. */}
+                <Image
+                  src="/logo.png"
+                  alt="Logo El Racó de Huelva"
+                  width={52}
+                  height={52}
+                  className="h-full w-full object-contain"
+                />
+              </span>
+              <span className="flex flex-col gap-1">
+                <span className="font-display text-xl leading-none tracking-[0.055em] text-crema">
+                  El Racó de Huelva
+                </span>
+                <span className="flex items-center gap-1.5 text-[10px] leading-none tracking-[0.24em] text-arena/85 uppercase">
+                  <MapPin size={11} aria-hidden="true" focusable="false" />
+                  Mollet del Vallès
+                </span>
+              </span>
+            </Link>
 
-            {/* Navegación (Centro) */}
-            <nav
-              className="flex-1 flex justify-center"
-              aria-label="Navegación principal"
-            >
-              <ul className="flex gap-8">
+            <nav className="flex flex-1 justify-center" aria-label="Navegación principal">
+              <ul className="flex gap-9">
                 {navItems.map((item) => (
                   <li key={item.href}>
                     <a
                       href={item.href}
                       title={`Ir a la sección ${item.label}`}
-                      aria-current={
-                        currentSection === item.href.slice(1)
-                          ? "page"
-                          : undefined
-                      }
-                      className="text-[#F9F6F1] font-medium relative pb-2 transition-colors duration-200 hover:text-[#D4AF8A] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#E8704A] after:transition-all after:duration-300 hover:after:w-full"
+                      aria-current={currentSection === item.id ? "page" : undefined}
+                      className={`nav-link text-[11px] tracking-[0.19em] uppercase transition-colors duration-200 hover:text-arena ${
+                        currentSection === item.id ? "text-arena" : "text-crema"
+                      }`}
                     >
                       {item.label}
                     </a>
@@ -112,82 +125,78 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Botón Reserva (Derecha) */}
             <a
-              href="#contacto"
-              aria-label="Reserva tu mesa en El Racó de Huelva"
-              className="flex items-center gap-2 bg-[#E8704A] hover:bg-[#D4764A] text-white px-6 py-2 font-semibold rounded-lg transition-all duration-200 whitespace-nowrap shadow-md hover:shadow-lg flex-shrink-0"
+              href="tel:+34658890607"
+              aria-label="Llamar a El Racó de Huelva para reservar mesa"
+              className="flex flex-shrink-0 items-center gap-2.5 bg-coral px-6 py-3 text-[11px] font-semibold tracking-[0.17em] whitespace-nowrap text-white uppercase transition-[background-color,transform] duration-200 hover:bg-coral-fuerte active:scale-[0.975]"
             >
-              <Calendar size={18} aria-hidden="true" focusable="false" />
-              <span>Reservar</span>
+              <Phone size={14} aria-hidden="true" focusable="false" />
+              Reservar
             </a>
           </div>
 
-          {/* Mobile Layout */}
-          <div className="md:hidden flex items-center justify-between">
-            {/* Logo Mobile */}
-            <div className="flex-1">
-              <Link href="/" className="flex items-center gap-2">
-                {/* Logo del restaurante mobile con fondo blanco circular */}
-                <div className="w-14 h-14 relative flex-shrink-0 bg-white rounded-full p-1.5 shadow-md">
-                  <Image
-                    src="/logo.png"
-                    alt="Logo El Racó de Huelva"
-                    fill
-                    className="object-contain p-0.5"
-                    priority
-                  />
-                </div>
-                {/* Nombre y ubicación mobile */}
-                <div className="flex flex-col">
-                  <h2 className="text-base sm:text-lg font-bold text-[#D4AF8A]">
-                    El Racó de Huelva
-                  </h2>
-                  <div className="flex items-center gap-1 text-xs text-[#F9F6F1]">
-                    <MapPin size={12} aria-hidden="true" focusable="false" />
-                    <span>Mollet del Vallès</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
+          {/* Móvil */}
+          <div className="flex items-center justify-between gap-3 py-3 md:hidden">
+            <Link href="/" className="flex items-center gap-2.5">
+              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-crema p-1">
+                <Image
+                  src="/logo.png"
+                  alt="Logo El Racó de Huelva"
+                  width={44}
+                  height={44}
+                  className="h-full w-full object-contain"
+                />
+              </span>
+              <span className="flex flex-col gap-0.5">
+                <span className="font-display text-base leading-none tracking-[0.04em] text-crema">
+                  El Racó de Huelva
+                </span>
+                <span className="text-[9px] leading-none tracking-[0.2em] text-arena/85 uppercase">
+                  Mollet del Vallès
+                </span>
+              </span>
+            </Link>
 
-            {/* Botones Mobile */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-[#F9F6F1] p-2"
-                aria-label="Alternar menú móvil"
-                aria-expanded={mobileMenuOpen}
-              >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center border border-arena/40 text-crema transition-transform duration-150 active:scale-95"
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="menu-movil"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
 
-          {/* Mobile Menu */}
           {mobileMenuOpen && (
             <nav
-              className="md:hidden mt-4 pb-4 space-y-3 border-t border-[#D4AF8A]/20 pt-4"
+              id="menu-movil"
+              className="reveal border-t border-arena/20 pb-4 md:hidden"
+              data-visible="true"
               aria-label="Navegación móvil"
             >
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  title={`Ir a la sección ${item.label}`}
-                  className="block text-sm text-[#F9F6F1] hover:text-[#D4AF8A] transition font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              <ul className="flex flex-col">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      title={`Ir a la sección ${item.label}`}
+                      className="flex h-13 items-center border-b border-arena/15 text-[12px] tracking-[0.19em] text-crema uppercase"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
               <a
-                href="#contacto"
-                className="block w-full bg-[#E8704A] hover:bg-[#D4764A] text-white py-2 rounded-lg text-center font-semibold transition-all mt-4"
+                href="tel:+34658890607"
+                className="mt-5 flex h-13 items-center justify-center gap-2.5 bg-coral text-[12px] font-semibold tracking-[0.19em] text-white uppercase transition-transform duration-150 active:scale-[0.975]"
                 onClick={() => setMobileMenuOpen(false)}
-                role="button"
               >
-                Reserva tu Mesa
+                <Phone size={15} aria-hidden="true" focusable="false" />
+                Reservar mesa
               </a>
             </nav>
           )}

@@ -1,14 +1,184 @@
 @import "tailwindcss";
 
-:root {
-  --font-marcellus: 'Marcellus', serif;
-  --font-lato: 'Lato', sans-serif;
+/* ------------------------------------------------------------------
+   El Racó de Huelva — sistema de diseño
+   Los valores de color estan elegidos por contraste medido, no a ojo.
+   Cada par que se usa para texto pasa WCAG AA (4,5:1).
+   ------------------------------------------------------------------ */
+@theme {
+  /* Fondos y tinta */
+  --color-marino: #0f3f5c;         /* titulares y texto sobre crema — 10,33:1 */
+  --color-marino-oscuro: #0d2e3d;  /* fondo de seccion oscura */
+  --color-crema: #f9f6f1;          /* fondo de seccion clara */
+  --color-tinta: #4a4a4a;          /* texto corrido sobre crema — 8,22:1 */
+
+  /* Arena: solo sobre fondo oscuro (sobre crema da 1,89:1) */
+  --color-arena: #d4af8a;          /* versalitas sobre marino — 6,98:1 */
+  --color-arena-clara: #f4e7d6;    /* titulares sobre marino — 11,69:1 */
+
+  /* Bronce: la arena adaptada a fondo claro */
+  --color-bronce: #7d5c39;         /* versalitas sobre crema — 5,63:1 */
+
+  /* Coral: un valor por fondo. El #e8704a anterior daba 3,07:1 con
+     blanco encima, es decir, los botones de Reservar no pasaban AA. */
+  --color-coral: #bb471f;          /* fondo de boton (blanco 5,21:1) y texto sobre crema (4,83:1) */
+  --color-coral-fuerte: #aa3709;   /* hover del boton */
+  --color-coral-claro: #f98661;    /* acento sobre marino — 4,57:1 */
+
+  /* Tipografia */
+  --font-display: var(--font-marcellus), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-instrument), "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Curvas: una sola escala, tomada de la guia de motion del proyecto */
+  --ease-suave: cubic-bezier(0.23, 1, 0.32, 1);   /* entradas y salidas */
+  --ease-firme: cubic-bezier(0.77, 0, 0.175, 1);  /* movimiento en pantalla */
 }
 
-body {
-  font-family: var(--font-lato);
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-crema);
+    color: var(--color-tinta);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  /* Un ancla que cae bajo la cabecera fija queda tapada sin esto */
+  section[id] {
+    scroll-margin-top: 96px;
+  }
 }
 
-h1 {
-  font-family: var(--font-marcellus);
+/* ------------------------------------------------------------------
+   Entrada al hacer scroll.
+   El IntersectionObserver solo decide CUANDO; la animacion la hace CSS,
+   que corre fuera del hilo principal y no pierde fotogramas mientras
+   Next hidrata. Por eso no hace falta una libreria de animacion.
+   ------------------------------------------------------------------ */
+/* Solo se oculta si JS esta vivo: sin JS el contenido se ve tal cual.
+   La clase .js la pone un script en linea antes del primer pintado. */
+.js .reveal {
+  opacity: 0;
+}
+
+.reveal[data-visible="true"] {
+  animation: rh-rise 720ms var(--ease-suave) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes rh-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Filete que se dibuja de dentro hacia fuera */
+.rule-draw[data-visible="true"] {
+  animation: rh-rule 900ms var(--ease-suave) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes rh-rule {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Asentado de la foto del hero: entra un punto ampliada y se posa */
+.hero-settle {
+  animation: rh-settle 2600ms var(--ease-suave) both;
+}
+
+@keyframes rh-settle {
+  from { transform: scale(1.09); }
+  to   { transform: scale(1); }
+}
+
+/* Indicador de scroll */
+.cue {
+  animation: rh-cue 2400ms var(--ease-firme) infinite;
+}
+
+@keyframes rh-cue {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50%      { transform: translateY(7px); opacity: 1; }
+}
+
+/* Entrada escalonada de los platos de la carta al cambiar de pestaña */
+.dish-in {
+  animation: rh-dish 540ms var(--ease-suave) both;
+  animation-delay: var(--dish-delay, 0ms);
+}
+
+@keyframes rh-dish {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Subrayado de navegacion que crece desde la izquierda */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  height: 1px;
+  width: 100%;
+  background: var(--color-arena);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 320ms var(--ease-suave);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Subrayado de las pestañas de la carta */
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-coral);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 380ms var(--ease-suave);
+}
+
+.tab:hover::after { transform: scaleX(0.45); }
+.tab[aria-selected="true"]::after { transform: scaleX(1); }
+
+/* Guia de puntos entre el plato y su precio */
+.leader {
+  flex: 1 1 auto;
+  height: 1px;
+  margin: 0 12px;
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-marino) 28%, transparent);
+  transform: translateY(-4px);
+}
+
+/* ------------------------------------------------------------------
+   Accesibilidad: quien pide menos movimiento no recibe ninguno.
+   Se neutraliza la duracion, no la propiedad, para que los estados
+   finales (opacidad 1, escala 1) sigan aplicandose.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
