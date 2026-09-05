@@ -1,11 +1,11 @@
 import Image, { type StaticImageData } from "next/image";
 import Reveal from "../components/Reveal";
-import plato1 from "../../../public/Plato1.jpeg";
-import plato2 from "../../../public/Plato2.jpeg";
-import plato3 from "../../../public/Plato3.jpeg";
-import plato4 from "../../../public/Plato4.jpeg";
-import plato6 from "../../../public/Plato6.jpeg";
-import plato17 from "../../../public/Plato17.jpeg";
+import plato1 from "../../../public/Plato1IA.jpeg";
+import plato2 from "../../../public/Plato2IA.jpeg";
+import plato3 from "../../../public/Plato3IA.jpeg";
+import plato4 from "../../../public/Plato4IA2.jpeg";
+import plato6 from "../../../public/Plato6IA.jpeg";
+import plato17 from "../../../public/Plato17IA.jpeg";
 
 type Plato = {
   id: number;
@@ -15,11 +15,12 @@ type Plato = {
   imagenAlt: string;
   categoria: string;
   /**
-   * Corrección de color medida foto a foto. Las originales van de 119 a
-   * 193 de luz y la saturación varía dos veces y media entre unas y
-   * otras, que es lo que hacía que no parecieran del mismo restaurante.
-   * Se corrige hacia luz 171 y saturación 0,14, amortiguado al 60% para
-   * no destrozar ninguna. Solo luz y color: no se añade nada al plato.
+   * Corrección de color medida foto a foto sobre las fotos nuevas. Ya
+   * vienen bien iluminadas: la dispersión de luz baja de 74 puntos a 35,
+   * así que el ajuste es mucho más suave que antes. Lo que sigue bailando
+   * es la saturación (el salmón está en 0,255 por la madera del fondo,
+   * el resto entre 0,107 y 0,146). Se corrige hacia luz 196 y saturación
+   * 0,14, amortiguado al 55%.
    */
   ajuste: string;
   desplace: string;
@@ -35,7 +36,7 @@ const platos: Plato[] = [
     imagenAlt:
       "Vieira a la plancha sobre crema de berenjena ahumada, con puntos de caviar de aceite",
     categoria: "Mariscos",
-    ajuste: "brightness(0.931) saturate(1.121)",
+    ajuste: "brightness(1.000) saturate(0.977)",
     desplace: "",
   },
   {
@@ -47,7 +48,7 @@ const platos: Plato[] = [
     imagenAlt:
       "Langostinos de Sanlúcar con crujiente de arroz y puntos de berenjena ahumada",
     categoria: "Crustáceos",
-    ajuste: "brightness(0.958) saturate(1.28)",
+    ajuste: "brightness(0.993) saturate(1.170)",
     desplace: "lg:mt-20",
   },
   {
@@ -59,7 +60,7 @@ const platos: Plato[] = [
     imagenAlt:
       "Lomo de salmón al horno con costra de azúcar moreno sobre salteado de verduras",
     categoria: "Pescados",
-    ajuste: "brightness(0.998) saturate(0.914)",
+    ajuste: "brightness(1.041) saturate(0.752)",
     desplace: "",
   },
   {
@@ -70,7 +71,7 @@ const platos: Plato[] = [
     imagen: plato4,
     imagenAlt: "Revuelto cremoso de langostino de Sanlúcar con salsa de trufa",
     categoria: "Crustáceos",
-    ajuste: "brightness(0.998) saturate(0.893)",
+    ajuste: "brightness(0.982) saturate(1.029)",
     desplace: "",
   },
   {
@@ -81,7 +82,7 @@ const platos: Plato[] = [
     imagen: plato6,
     imagenAlt: "Cochinillo confitado con salsa de manzana y gel de naranja",
     categoria: "Carnes",
-    ajuste: "brightness(1.22) saturate(0.746)",
+    ajuste: "brightness(0.945) saturate(1.137)",
     desplace: "lg:mt-20",
   },
   {
@@ -92,7 +93,7 @@ const platos: Plato[] = [
     imagen: plato17,
     imagenAlt: "Porción de cheesecake sobre base de galleta con coulis de frambuesa",
     categoria: "Postres",
-    ajuste: "brightness(1.056) saturate(1.08)",
+    ajuste: "brightness(1.003) saturate(0.977)",
     desplace: "",
   },
 ];
