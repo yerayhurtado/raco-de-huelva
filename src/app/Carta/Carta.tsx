@@ -340,7 +340,7 @@ export default function Carta() {
                   aria-controls={`panel-${slug(category)}`}
                   onClick={() => selectCategory(category)}
                   onKeyDown={(event) => onTabKeyDown(event, index)}
-                  className={`tab relative flex-none snap-start cursor-pointer px-0.5 py-3 text-mini font-semibold tracking-[0.2em] whitespace-nowrap uppercase transition-colors duration-[240ms] ${
+                  className={`tab relative flex-none snap-start cursor-pointer px-0.5 py-4 md:py-3 text-mini font-semibold tracking-[0.2em] whitespace-nowrap uppercase transition-colors duration-[240ms] ${
                     selected ? "text-coral-claro" : "text-crema/70 hover:text-coral-claro"
                   }`}
                 >

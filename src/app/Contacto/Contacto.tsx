@@ -111,7 +111,7 @@ export default function Contact() {
                 </span>
                 <a
                   href="tel:+34658890607"
-                  className="mt-5 block font-display text-[clamp(2rem,5vw,2.875rem)] leading-[1.1] text-arena-clara tabular-nums transition-colors duration-[240ms] hover:text-white"
+                  className="mt-5 inline-flex min-h-11 items-center font-display text-[clamp(2rem,5vw,2.875rem)] leading-[1.1] text-arena-clara tabular-nums transition-colors duration-[240ms] hover:text-white"
                 >
                   658 89 06 07
                 </a>

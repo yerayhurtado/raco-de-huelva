@@ -37,7 +37,7 @@ export default function Footer() {
                   aria-label="Síguenos en Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10.5 w-10.5 items-center justify-center border border-bronce/45 text-marino transition-[background-color,color,border-color,transform] duration-[260ms] ease-[var(--ease-suave)] hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center border border-bronce/45 text-marino transition-[background-color,color,border-color,transform] duration-[260ms] ease-[var(--ease-suave)] hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-white"
                 >
                   <svg
                     className="h-4.5 w-4.5"
@@ -59,7 +59,7 @@ export default function Footer() {
                   aria-label="Síguenos en Facebook"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10.5 w-10.5 items-center justify-center border border-bronce/45 text-marino transition-[background-color,color,border-color,transform] duration-[260ms] ease-[var(--ease-suave)] hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center border border-bronce/45 text-marino transition-[background-color,color,border-color,transform] duration-[260ms] ease-[var(--ease-suave)] hover:-translate-y-0.5 hover:border-coral hover:bg-coral hover:text-white"
                 >
                   <svg
                     className="h-4.5 w-4.5"
@@ -83,7 +83,7 @@ export default function Footer() {
               </span>
               <a
                 href="tel:+34658890607"
-                className="mt-5.5 text-cuerpo text-marino tabular-nums transition-colors duration-[220ms] hover:text-coral"
+                className="mt-4 inline-flex min-h-11 items-center text-cuerpo text-marino tabular-nums transition-colors duration-[220ms] hover:text-coral"
               >
                 658 89 06 07
               </a>
@@ -91,7 +91,7 @@ export default function Footer() {
                 href="https://wa.me/34658890607?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mesa%20en%20El%20Rac%C3%B3%20de%20Huelva."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 text-cuerpo text-tinta transition-colors duration-[220ms] hover:text-coral"
+                className="inline-flex min-h-11 items-center text-cuerpo text-tinta transition-colors duration-[220ms] hover:text-coral"
               >
                 WhatsApp
               </a>
@@ -132,7 +132,7 @@ export default function Footer() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-cuerpo text-tinta transition-colors duration-[220ms] hover:text-coral"
+                    className="inline-flex min-h-11 items-center text-cuerpo text-tinta transition-colors duration-[220ms] hover:text-coral"
                   >
                     {item.label}
                   </a>

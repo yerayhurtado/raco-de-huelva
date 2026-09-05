@@ -160,7 +160,7 @@ export default function Gallery() {
               >
                 <div
                   id={`galeria-${plato.id}`}
-                  className="shot relative aspect-square overflow-hidden bg-[#e4dcd1]"
+                  className="shot relative aspect-[5/4] overflow-hidden bg-[#e4dcd1] sm:aspect-square"
                 >
                   <div className="parallax absolute inset-x-0 -top-[6%] h-[112%]">
                     <Image
