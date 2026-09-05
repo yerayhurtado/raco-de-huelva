@@ -45,6 +45,16 @@ const resenas = [
     texto:
       "Acabamos de comer hoy en El Racó de Huelva y ha sido una experiencia fantástica. Comida auténtica, sabrosa y con productos de primera. El trato, muy cercano y amable. Un sitio que nunca falla. Destacar que tienen comida sin gluten.",
   },
+  {
+    nombre: "santisam13",
+    iniciales: "S",
+    // Reseña de TripAdvisor, no de Google: se marca la fuente. Y estaba
+    // en inglés, así que se indica que la traducción no es suya.
+    meta: "Julio 2026 · TripAdvisor, 451 aportaciones · traducida del inglés",
+    ticket: "En pareja",
+    texto:
+      "Los calamares a la andaluza y la mariscada no podrían estar mejor. Fuimos a comer al mediodía, era la primera vez desde el cambio de nombre: muy buena carta y bien presentada, el servicio estupendo y los dueños muy atentos y amables. Muy buen restaurante, totalmente recomendable.",
+  },
 ];
 
 const googleRating = "4,6";
