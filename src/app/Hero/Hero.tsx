@@ -62,7 +62,7 @@ export default function Hero() {
           quality={85}
           sizes="100vw"
         />
-        <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(13,46,61,0.88)_0%,rgba(15,63,92,0.68)_42%,rgba(13,46,61,1)_100%)]" />
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(13,46,61,0.88)_0%,rgba(15,63,92,0.68)_42%,rgba(13,46,61,0.92)_100%)]" />
 
         <div className="hero-out relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">

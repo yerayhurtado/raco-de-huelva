@@ -125,20 +125,10 @@ export default function Gallery() {
 
       <section
         id="galeria"
-        className="relative bg-crema px-5 pt-56 pb-24 sm:px-6 sm:pt-72 sm:pb-32 lg:px-24"
+        className="bg-crema px-5 py-24 sm:px-6 sm:py-32 lg:px-24"
         aria-label="Galería de platos gourmet con mariscos de Huelva"
       >
-        {/* El marino del hero no se corta: entra en la galería y se
-            disuelve aquí dentro. El velo va sobre la crema, de opaco a
-            transparente, así que los tonos intermedios son crema
-            oscurecida y no la interpolación entre los dos planos, que
-            pasaría por grises fuera de la paleta. */}
-        <div
-          className="absolute inset-x-0 top-0 z-0 h-44 bg-[linear-gradient(180deg,var(--color-marino-oscuro)_0%,rgba(13,46,61,0.86)_28%,rgba(13,46,61,0.38)_62%,rgba(13,46,61,0)_100%)] sm:h-60"
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl">
           <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
             <Reveal>
               <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.05] text-marino">
