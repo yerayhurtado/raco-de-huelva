@@ -49,7 +49,7 @@ const platos: Plato[] = [
       "Langostinos de Sanlúcar con crujiente de arroz y puntos de berenjena ahumada",
     categoria: "Crustáceos",
     ajuste: "brightness(0.993) saturate(1.170)",
-    desplace: "lg:mt-20",
+    desplace: "sm:mt-28",
   },
   {
     id: 3,
@@ -72,7 +72,7 @@ const platos: Plato[] = [
     imagenAlt: "Revuelto cremoso de langostino de Sanlúcar con salsa de trufa",
     categoria: "Crustáceos",
     ajuste: "brightness(0.982) saturate(1.029)",
-    desplace: "",
+    desplace: "sm:mt-28",
   },
   {
     id: 5,
@@ -83,7 +83,7 @@ const platos: Plato[] = [
     imagenAlt: "Cochinillo confitado con salsa de manzana y gel de naranja",
     categoria: "Carnes",
     ajuste: "brightness(0.945) saturate(1.137)",
-    desplace: "lg:mt-20",
+    desplace: "",
   },
   {
     id: 6,
@@ -94,7 +94,7 @@ const platos: Plato[] = [
     imagenAlt: "Porción de cheesecake sobre base de galleta con coulis de frambuesa",
     categoria: "Postres",
     ajuste: "brightness(1.003) saturate(0.977)",
-    desplace: "",
+    desplace: "sm:mt-28",
   },
 ];
 
@@ -146,11 +146,11 @@ export default function Gallery() {
             </Reveal>
           </div>
 
-          {/* Marcos iguales para las seis. Las fotos de origen mezclan
-              vertical y horizontal, así que el cuadrado es el recorte que
-              menos maltrata a unas y otras. El ritmo lo da el desplazamiento
-              de la columna del medio, no el tamaño. */}
-          <div className="mt-16 grid grid-cols-1 items-start gap-x-11 gap-y-13 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Dos columnas, no tres: las fotos nuevas aguantan verse grandes
+              y seis fotos grandes valen más que seis pequeñas. Sin
+              descripción debajo, que repetía casi literalmente la carta y
+              era el grueso del texto de la sección. */}
+          <div className="mt-16 grid grid-cols-1 items-start gap-x-12 gap-y-16 sm:mt-24 sm:grid-cols-2 sm:gap-y-24">
             {platos.map((plato, index) => (
               <Reveal
                 key={plato.id}
@@ -171,7 +171,7 @@ export default function Gallery() {
                       placeholder="blur"
                       style={{ filter: plato.ajuste }}
                       className="object-cover transition-transform duration-[760ms] ease-[var(--ease-suave)] group-hover:scale-[1.045]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                       quality={85}
                     />
                   </div>
@@ -181,19 +181,16 @@ export default function Gallery() {
                   />
                 </div>
 
-                <span className="mt-5.5 text-micro font-semibold tracking-[0.26em] text-bronce uppercase">
+                <span className="mt-7 text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
                   {plato.categoria}
                 </span>
-                <h3 className="mt-2.5 text-pieza leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral">
+                <h3 className="mt-3 text-plato leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral sm:text-[1.75rem]">
                   {plato.nombre}
                 </h3>
                 <span
                   className="mt-3.5 block h-px w-0 bg-bronce transition-[width] duration-500 ease-[var(--ease-suave)] group-hover:w-11"
                   aria-hidden="true"
                 />
-                <p className="mt-3.5 text-cuerpo leading-[1.68] text-tinta text-pretty">
-                  {plato.descripcion}
-                </p>
               </Reveal>
             ))}
           </div>
