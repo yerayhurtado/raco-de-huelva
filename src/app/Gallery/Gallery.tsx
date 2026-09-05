@@ -148,8 +148,7 @@ export default function Gallery() {
 
           {/* Dos columnas, no tres: las fotos nuevas aguantan verse grandes
               y seis fotos grandes valen más que seis pequeñas. Sin
-              descripción debajo, que repetía casi literalmente la carta y
-              era el grueso del texto de la sección. */}
+              con su descripción bajo cada una. */}
           <div className="mt-16 grid grid-cols-1 items-start gap-x-12 gap-y-16 sm:mt-24 sm:grid-cols-2 sm:gap-y-24">
             {platos.map((plato, index) => (
               <Reveal
@@ -181,16 +180,24 @@ export default function Gallery() {
                   />
                 </div>
 
-                <span className="mt-7 text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
-                  {plato.categoria}
-                </span>
-                <h3 className="mt-3 text-plato leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral sm:text-[1.75rem]">
-                  {plato.nombre}
-                </h3>
-                <span
-                  className="mt-3.5 block h-px w-0 bg-bronce transition-[width] duration-500 ease-[var(--ease-suave)] group-hover:w-11"
-                  aria-hidden="true"
-                />
+                {/* El pie entra un poco después que la foto: la sección se
+                    lee como un solo gesto en tres tiempos, no como tres
+                    cosas apareciendo a la vez. */}
+                <div className="pie flex flex-col">
+                  <span className="mt-7 text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
+                    {plato.categoria}
+                  </span>
+                  <h3 className="mt-3 text-plato leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral sm:text-[1.75rem]">
+                    {plato.nombre}
+                  </h3>
+                  <span
+                    className="mt-4 block h-px w-11 bg-bronce/40 transition-[width,background-color] duration-500 ease-[var(--ease-suave)] group-hover:w-20 group-hover:bg-bronce"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-4 max-w-[34rem] text-cuerpo leading-[1.7] text-tinta text-pretty">
+                    {plato.descripcion}
+                  </p>
+                </div>
               </Reveal>
             ))}
           </div>

@@ -240,9 +240,49 @@
    ------------------------------------------------------------------ */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    /* Paralaje de las fotos de la galeria. Va en `translate`, que es una
-       propiedad distinta de `transform`, para no bloquear la escala del
-       hover: las dos se componen en vez de pisarse. */
+    /* Las entradas dejan de dispararse y pasan a SEGUIR al scroll: la
+       animación avanza con el dedo en vez de correr en paralelo a él.
+       Eso es lo que se percibe como fluidez, y de paso el escalonado
+       lo da la propia posición de cada elemento, no un retardo fijo.
+       El shorthand reinicia animation-delay, que con una timeline de
+       scroll no significa tiempo sino desplazamiento de rango. */
+    .js .reveal {
+      opacity: 1;
+      animation: rh-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 8% entry 46%;
+    }
+
+    /* La galería: la tarjeta se posa, la foto se descubre de arriba
+       abajo y el pie entra después. Una sola idea en tres tiempos. */
+    .js .reveal-frame {
+      opacity: 1;
+      animation: rh-card linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 42%;
+    }
+
+    .js .reveal-frame .shot {
+      animation: rh-curtain linear both;
+      animation-timeline: view();
+      animation-range: entry 2% entry 56%;
+    }
+
+    .js .reveal-frame .pie {
+      animation: rh-pie linear both;
+      animation-timeline: view();
+      animation-range: entry 18% entry 64%;
+    }
+
+    .rule-draw {
+      animation: rh-rule linear both;
+      animation-timeline: view();
+      animation-range: entry 15% entry 55%;
+    }
+
+    /* Paralaje de las fotos. Va en `translate`, que es una propiedad
+       distinta de `transform`, para no bloquear la escala del hover:
+       las dos se componen en vez de pisarse. */
     .parallax {
       animation: rh-parallax linear both;
       animation-timeline: view();
@@ -256,6 +296,16 @@
       animation-range: exit 0% exit 85%;
     }
   }
+}
+
+@keyframes rh-card {
+  from { opacity: 0; transform: translateY(30px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes rh-pie {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
 }
 
 @keyframes rh-parallax {
@@ -279,6 +329,8 @@
 }
 
 html {
+  /* Al pulsar la navegación se recorre la página en vez de saltar */
+  scroll-behavior: smooth;
   scrollbar-color: var(--color-bronce) var(--color-crema);
   scrollbar-width: thin;
 }
