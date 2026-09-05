@@ -203,6 +203,43 @@
 }
 
 /* ------------------------------------------------------------------
+   Movimiento ligado al scroll.
+   Esto es lo que hace que la pagina se sienta fluida y no una pila de
+   secciones que aparecen: la posicion del scroll conduce la animacion,
+   no un disparo que empieza y termina. Es CSS puro, corre fuera del
+   hilo principal, y donde no hay soporte sencillamente no ocurre.
+   ------------------------------------------------------------------ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Paralaje de las fotos de la galeria. Va en `translate`, que es una
+       propiedad distinta de `transform`, para no bloquear la escala del
+       hover: las dos se componen en vez de pisarse. */
+    .parallax {
+      animation: rh-parallax linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    /* El hero se despide en vez de cortarse en seco */
+    .hero-out {
+      animation: rh-hero-out linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 85%;
+    }
+  }
+}
+
+@keyframes rh-parallax {
+  from { translate: 0 -3.5%; }
+  to   { translate: 0 3.5%; }
+}
+
+@keyframes rh-hero-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ------------------------------------------------------------------
    Superficies que no dibuja el diseñador pero que el navegador pinta
    igual: seleccion, barra de scroll, anillo de foco. Con los valores
    por defecto la pagina parece ensamblada; tematizadas, construida.

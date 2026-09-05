@@ -1,5 +1,7 @@
 import Image from "next/image";
+import heroBg from "../../../public/HeroBg.jpg";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
+import EstadoApertura from "../components/EstadoApertura";
 
 export default function Hero() {
   return (
@@ -51,17 +53,18 @@ export default function Hero() {
         aria-label="Bienvenida a El Racó de Huelva - Mariscos frescos de Huelva en Mollet del Vallès, Barcelona"
       >
         <Image
-          src="/HeroBg.jpg"
+          src={heroBg}
           alt="Mariscos frescos premium de Huelva en El Racó de Huelva, restaurante en Mollet del Vallès"
           fill
           className="hero-settle z-0 object-cover"
+          placeholder="blur"
           priority
           quality={85}
           sizes="100vw"
         />
         <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(13,46,61,0.88)_0%,rgba(15,63,92,0.68)_42%,rgba(13,46,61,0.92)_100%)]" />
 
-        <div className="relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="hero-out relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {/* Sin eyebrow: el titular se sostiene solo, y la localizacion
                 ya viaja en la linea de prueba de debajo. */}
@@ -127,7 +130,7 @@ export default function Hero() {
               <span className="hidden h-[3px] w-[3px] rounded-full bg-arena/60 sm:block" />
               <span>Carrer Roger de Llúria, 7</span>
               <span className="hidden h-[3px] w-[3px] rounded-full bg-arena/60 sm:block" />
-              <span>Miércoles a domingo</span>
+              <EstadoApertura />
             </div>
           </div>
         </div>

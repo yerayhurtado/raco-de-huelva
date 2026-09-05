@@ -1,5 +1,7 @@
 import { ArrowRight, Clock, MapPin, Phone } from "lucide-react";
 import Reveal from "../components/Reveal";
+import EstadoApertura from "../components/EstadoApertura";
+import Mapa from "../components/Mapa";
 
 const pasos = [
   "Llama o escribe al 658 89 06 07",
@@ -13,8 +15,6 @@ const horario = [
   { dias: "Viernes y sábado, noche", horas: "20:30 – 23:30", cerrado: false },
   { dias: "Lunes y martes", horas: "Cerrado", cerrado: true },
 ];
-
-const DIRECCION = "Carrer de Roger de Llúria 7, 08100 Mollet del Vallès";
 
 // El telefono es la via principal, pero en escritorio un tel: no lleva
 // a ninguna parte: WhatsApp cubre ese hueco sin competir con la llamada.
@@ -159,7 +159,8 @@ export default function Contact() {
                     Horario
                   </span>
                 </span>
-                <dl className="mt-5 flex flex-col">
+                <EstadoApertura className="mt-5 text-[15px] text-arena-clara" />
+                <dl className="mt-4 flex flex-col">
                   {horario.map((fila, index) => (
                     <div
                       key={fila.dias}
@@ -182,15 +183,7 @@ export default function Contact() {
             </div>
 
             <Reveal delay={340} className="min-h-125 lg:min-h-full">
-              <div className="relative h-full min-h-125 overflow-hidden border border-arena/25">
-                <iframe
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(DIRECCION)}&output=embed`}
-                  title="Ubicación de El Racó de Huelva en Google Maps"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 h-full w-full border-0"
-                />
-              </div>
+              <Mapa />
             </Reveal>
           </div>
 
