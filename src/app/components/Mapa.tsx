@@ -33,7 +33,7 @@ export default function Mapa() {
   }
 
   return (
-    <div className="relative flex h-full min-h-125 flex-col justify-end overflow-hidden border border-arena/25 bg-[#0b3149] p-9 sm:p-11">
+    <div className="relative flex h-full min-h-125 flex-col justify-end overflow-hidden border border-arena/25 bg-marino p-9 sm:p-11">
       <svg
         viewBox="0 0 640 640"
         preserveAspectRatio="xMidYMid slice"

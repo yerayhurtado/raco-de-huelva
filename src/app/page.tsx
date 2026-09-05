@@ -14,9 +14,12 @@ export default function Home() {
       <main id="contenido">
         <Hero />
         <Gallery />
+        {/* Alternancia oscuro / claro. Si se reactiva el menú del día,
+            que es oscuro, va aquí: entre Galería y Opiniones no rompe
+            el ritmo, pero entre las dos secciones crema sí. */}
         {/* <MenuDiario /> */}
-        <Carta />
         <Opiniones />
+        <Carta />
         <Contact />
       </main>
       <Footer />

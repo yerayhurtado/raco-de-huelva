@@ -76,7 +76,7 @@ export default function Contact() {
 
       <section
         id="contacto"
-        className="bg-marino px-5 py-24 sm:px-6 sm:py-32 lg:px-28"
+        className="bg-marino-oscuro px-5 py-24 sm:px-6 sm:py-32 lg:px-28"
         aria-label="Contacto y reservas - El Racó de Huelva"
       >
         <div className="mx-auto max-w-7xl">
