@@ -14,9 +14,14 @@ type Plato = {
   imagen: StaticImageData;
   imagenAlt: string;
   categoria: string;
-  /** Retícula editorial: ni todas las fotos miden lo mismo ni caen a la misma altura. */
-  columnas: string;
-  alto: string;
+  /**
+   * Corrección de color medida foto a foto. Las originales van de 119 a
+   * 193 de luz y la saturación varía dos veces y media entre unas y
+   * otras, que es lo que hacía que no parecieran del mismo restaurante.
+   * Se corrige hacia luz 171 y saturación 0,14, amortiguado al 60% para
+   * no destrozar ninguna. Solo luz y color: no se añade nada al plato.
+   */
+  ajuste: string;
   desplace: string;
 };
 
@@ -28,10 +33,9 @@ const platos: Plato[] = [
       "Vieira fresca, cuidadosamente a la plancha, servida con crema de berenjena ahumada y delicado caviar de aceite que realza su sabor.",
     imagen: plato1,
     imagenAlt:
-      "Vieira fresca a la plancha con crema de berenjena ahumada y caviar de aceite en El Racó de Huelva, Mollet del Vallès",
+      "Vieira a la plancha sobre crema de berenjena ahumada, con puntos de caviar de aceite",
     categoria: "Mariscos",
-    columnas: "lg:col-span-7",
-    alto: "h-80 sm:h-96 lg:h-[36rem]",
+    ajuste: "brightness(0.931) saturate(1.121)",
     desplace: "",
   },
   {
@@ -41,11 +45,10 @@ const platos: Plato[] = [
       "Langostinos frescos de Sanlúcar marinados con jengibre, comino y tajín, con crujiente de arroz y toques de berenjena ahumada.",
     imagen: plato2,
     imagenAlt:
-      "Langostinos frescos de Sanlúcar marinados, en restaurante gourmet de Mollet del Vallès",
+      "Langostinos de Sanlúcar con crujiente de arroz y puntos de berenjena ahumada",
     categoria: "Crustáceos",
-    columnas: "lg:col-span-5",
-    alto: "h-80 sm:h-96 lg:h-[27rem]",
-    desplace: "lg:mt-28",
+    ajuste: "brightness(0.958) saturate(1.28)",
+    desplace: "lg:mt-20",
   },
   {
     id: 3,
@@ -54,10 +57,9 @@ const platos: Plato[] = [
       "Salmón al horno con superficie caramelizada de azúcar moreno, acompañado de polvo de pistacho y un salteado de verduras frescas.",
     imagen: plato3,
     imagenAlt:
-      "Salmón al horno con costra de azúcar moreno en El Racó de Huelva, Barcelona",
+      "Lomo de salmón al horno con costra de azúcar moreno sobre salteado de verduras",
     categoria: "Pescados",
-    columnas: "lg:col-span-5",
-    alto: "h-80 sm:h-96 lg:h-[27rem]",
+    ajuste: "brightness(0.998) saturate(0.914)",
     desplace: "",
   },
   {
@@ -66,12 +68,10 @@ const platos: Plato[] = [
     descripcion:
       "Revuelto cremoso de langostino de Sanlúcar con salsa de trufa y huevos de corral.",
     imagen: plato4,
-    imagenAlt:
-      "Revuelto cremoso de langostinos de Sanlúcar con salsa de trufa y huevos de corral",
+    imagenAlt: "Revuelto cremoso de langostino de Sanlúcar con salsa de trufa",
     categoria: "Crustáceos",
-    columnas: "lg:col-span-7",
-    alto: "h-80 sm:h-96 lg:h-[34rem]",
-    desplace: "lg:mt-16",
+    ajuste: "brightness(0.998) saturate(0.893)",
+    desplace: "",
   },
   {
     id: 5,
@@ -79,11 +79,10 @@ const platos: Plato[] = [
     descripcion:
       "Cochinillo confitado lentamente a baja temperatura, con salsa de manzana y gel de naranja, de textura crujiente y jugosa.",
     imagen: plato6,
-    imagenAlt: "Cochinillo confitado a baja temperatura en El Racó de Huelva",
+    imagenAlt: "Cochinillo confitado con salsa de manzana y gel de naranja",
     categoria: "Carnes",
-    columnas: "lg:col-span-6",
-    alto: "h-80 sm:h-96 lg:h-[30rem]",
-    desplace: "",
+    ajuste: "brightness(1.22) saturate(0.746)",
+    desplace: "lg:mt-20",
   },
   {
     id: 6,
@@ -91,11 +90,10 @@ const platos: Plato[] = [
     descripcion:
       "Cheesecake suave y cremoso sobre base de galleta, coronado con coulis de frambuesa fresca que aporta un contraste ácido.",
     imagen: plato17,
-    imagenAlt: "Cheesecake de frambuesa servido en El Racó de Huelva",
+    imagenAlt: "Porción de cheesecake sobre base de galleta con coulis de frambuesa",
     categoria: "Postres",
-    columnas: "lg:col-span-6",
-    alto: "h-80 sm:h-96 lg:h-[30rem]",
-    desplace: "lg:mt-20",
+    ajuste: "brightness(1.056) saturate(1.08)",
+    desplace: "",
   },
 ];
 
@@ -130,9 +128,6 @@ export default function Gallery() {
         aria-label="Galería de platos gourmet con mariscos de Huelva"
       >
         <div className="mx-auto max-w-7xl">
-          {/* Cabecera asimétrica: el titular ancla a la izquierda y el texto
-              cierra a la derecha. Todo centrado en todas las secciones era
-              la composición más segura y la menos memorable. */}
           <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
             <Reveal>
               <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.05] text-marino">
@@ -150,29 +145,32 @@ export default function Gallery() {
             </Reveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 items-start gap-x-11 gap-y-13 sm:mt-20 sm:grid-cols-2 lg:grid-cols-12">
+          {/* Marcos iguales para las seis. Las fotos de origen mezclan
+              vertical y horizontal, así que el cuadrado es el recorte que
+              menos maltrata a unas y otras. El ritmo lo da el desplazamiento
+              de la columna del medio, no el tamaño. */}
+          <div className="mt-16 grid grid-cols-1 items-start gap-x-11 gap-y-13 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
             {platos.map((plato, index) => (
               <Reveal
                 key={plato.id}
                 as="article"
                 variant="reveal-frame"
                 delay={index * 90}
-                className={`group flex flex-col ${plato.columnas} ${plato.desplace}`}
+                className={`group flex flex-col ${plato.desplace}`}
               >
                 <div
                   id={`galeria-${plato.id}`}
-                  className={`shot relative overflow-hidden bg-[#e4dcd1] ${plato.alto}`}
+                  className="shot relative aspect-square overflow-hidden bg-[#e4dcd1]"
                 >
-                  {/* El paralaje va en el contenedor y la escala del hover en la
-                      imagen: separados, no compiten por la misma propiedad. */}
                   <div className="parallax absolute inset-x-0 -top-[6%] h-[112%]">
                     <Image
                       src={plato.imagen}
                       alt={plato.imagenAlt}
                       fill
                       placeholder="blur"
+                      style={{ filter: plato.ajuste }}
                       className="object-cover transition-transform duration-[760ms] ease-[var(--ease-suave)] group-hover:scale-[1.045]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 55vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       quality={85}
                     />
                   </div>
@@ -192,7 +190,7 @@ export default function Gallery() {
                   className="mt-3.5 block h-px w-0 bg-bronce transition-[width] duration-500 ease-[var(--ease-suave)] group-hover:w-11"
                   aria-hidden="true"
                 />
-                <p className="mt-3.5 max-w-[34rem] text-cuerpo leading-[1.68] text-tinta text-pretty">
+                <p className="mt-3.5 text-cuerpo leading-[1.68] text-tinta text-pretty">
                   {plato.descripcion}
                 </p>
               </Reveal>
