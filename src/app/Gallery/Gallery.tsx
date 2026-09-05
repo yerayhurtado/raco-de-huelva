@@ -98,6 +98,66 @@ const platos: Plato[] = [
   },
 ];
 
+function Tarjeta({
+  plato,
+  className = "",
+  ancha = false,
+}: {
+  plato: Plato;
+  className?: string;
+  ancha?: boolean;
+}) {
+  return (
+    <Reveal
+      as="article"
+      variant="reveal-frame"
+      className={`group flex flex-col ${className}`}
+    >
+      <div
+        id={`galeria-${plato.id}`}
+        className={`shot relative overflow-hidden bg-[#e4dcd1] ${
+          ancha ? "aspect-[5/4] sm:aspect-[16/8]" : "aspect-[5/4] sm:aspect-square"
+        }`}
+      >
+        {/* El paralaje va en el contenedor y la escala del hover en la
+            imagen: separados, no compiten por la misma propiedad. */}
+        <div className="parallax absolute inset-x-0 -top-[6%] h-[112%]">
+          <Image
+            src={plato.imagen}
+            alt={plato.imagenAlt}
+            fill
+            placeholder="blur"
+            style={{ filter: plato.ajuste }}
+            className="object-cover transition-transform duration-[760ms] ease-[var(--ease-suave)] group-hover:scale-[1.045]"
+            sizes={ancha ? "(max-width: 640px) 100vw, 90vw" : "(max-width: 640px) 100vw, 50vw"}
+            quality={85}
+          />
+        </div>
+        <div
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,46,61,0)_45%,rgba(13,46,61,0.55)_100%)] opacity-0 transition-opacity duration-500 ease-[var(--ease-suave)] group-hover:opacity-100"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="pie flex flex-col">
+        <span className="mt-7 text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
+          {plato.categoria}
+        </span>
+        <h3 className="mt-3 text-plato leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral sm:text-[1.75rem]">
+          {plato.nombre}
+        </h3>
+        <span
+          className="mt-4 block h-px w-11 bg-bronce/40 transition-[width,background-color] duration-500 ease-[var(--ease-suave)] group-hover:w-20 group-hover:bg-bronce"
+          aria-hidden="true"
+        />
+        <p className="mt-4 max-w-[34rem] text-cuerpo leading-[1.7] text-tinta text-pretty">
+          {plato.descripcion}
+        </p>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function Gallery() {
   return (
     <>
@@ -129,77 +189,41 @@ export default function Gallery() {
         aria-label="Galería de platos gourmet con mariscos de Huelva"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
-            <Reveal>
-              <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.05] text-marino">
-                Galería
-                <br />
-                de platos
-              </h2>
-            </Reveal>
+          {/* El puente entre secciones: esta foto arranca sobre el marino
+              del hero y acaba sobre la crema, así que existe en las dos y
+              cose la costura. Sin degradados: entre crema y marino un
+              degradado pasa por grises que no están en la paleta. */}
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-end lg:gap-16">
+            <div className="lg:pb-10">
+              <Reveal>
+                <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.05] text-marino">
+                  Galería
+                  <br />
+                  de platos
+                </h2>
+              </Reveal>
+              <Reveal delay={90}>
+                <p className="mt-7 max-w-[27rem] text-guia leading-[1.75] text-tinta text-pretty">
+                  Una selección de lo que sale cada día de nuestra cocina, elaborada con
+                  producto fresco de Huelva y Sanlúcar.
+                </p>
+              </Reveal>
+            </div>
 
-            <Reveal delay={90}>
-              <p className="max-w-[27rem] text-guia leading-[1.75] text-tinta text-pretty lg:text-right">
-                Una selección de lo que sale cada día de nuestra cocina, elaborada con
-                producto fresco de Huelva y Sanlúcar.
-              </p>
-            </Reveal>
+            <Tarjeta plato={platos[0]} className="lg:-mt-64" />
           </div>
 
-          {/* Dos columnas, no tres: las fotos nuevas aguantan verse grandes
-              y seis fotos grandes valen más que seis pequeñas. Sin
-              con su descripción bajo cada una. */}
-          <div className="mt-16 grid grid-cols-1 items-start gap-x-12 gap-y-16 sm:mt-24 sm:grid-cols-2 sm:gap-y-24">
-            {platos.map((plato, index) => (
-              <Reveal
+          <div className="mt-16 grid grid-cols-1 items-start gap-x-12 gap-y-16 sm:mt-28 sm:grid-cols-2 sm:gap-y-24">
+            {platos.slice(1, 5).map((plato, index) => (
+              <Tarjeta
                 key={plato.id}
-                as="article"
-                variant="reveal-frame"
-                delay={index * 90}
-                className={`group flex flex-col ${plato.desplace}`}
-              >
-                <div
-                  id={`galeria-${plato.id}`}
-                  className="shot relative aspect-[5/4] overflow-hidden bg-[#e4dcd1] sm:aspect-square"
-                >
-                  <div className="parallax absolute inset-x-0 -top-[6%] h-[112%]">
-                    <Image
-                      src={plato.imagen}
-                      alt={plato.imagenAlt}
-                      fill
-                      placeholder="blur"
-                      style={{ filter: plato.ajuste }}
-                      className="object-cover transition-transform duration-[760ms] ease-[var(--ease-suave)] group-hover:scale-[1.045]"
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      quality={85}
-                    />
-                  </div>
-                  <div
-                    className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,46,61,0)_45%,rgba(13,46,61,0.55)_100%)] opacity-0 transition-opacity duration-500 ease-[var(--ease-suave)] group-hover:opacity-100"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* El pie entra un poco después que la foto: la sección se
-                    lee como un solo gesto en tres tiempos, no como tres
-                    cosas apareciendo a la vez. */}
-                <div className="pie flex flex-col">
-                  <span className="mt-7 text-micro font-semibold tracking-[0.28em] text-bronce uppercase">
-                    {plato.categoria}
-                  </span>
-                  <h3 className="mt-3 text-plato leading-[1.25] text-marino transition-colors duration-[260ms] group-hover:text-coral sm:text-[1.75rem]">
-                    {plato.nombre}
-                  </h3>
-                  <span
-                    className="mt-4 block h-px w-11 bg-bronce/40 transition-[width,background-color] duration-500 ease-[var(--ease-suave)] group-hover:w-20 group-hover:bg-bronce"
-                    aria-hidden="true"
-                  />
-                  <p className="mt-4 max-w-[34rem] text-cuerpo leading-[1.7] text-tinta text-pretty">
-                    {plato.descripcion}
-                  </p>
-                </div>
-              </Reveal>
+                plato={plato}
+                className={index % 2 === 1 ? "sm:mt-28" : ""}
+              />
             ))}
+            {/* La última cierra a lo ancho: un último golpe de vista antes
+                de salir de la sección. */}
+            <Tarjeta plato={platos[5]} className="sm:col-span-2" ancha />
           </div>
 
           <div className="mt-24 flex flex-col items-center gap-6.5 sm:mt-32">

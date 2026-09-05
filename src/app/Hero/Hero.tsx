@@ -143,8 +143,10 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* En pantalla grande no hace falta: la foto de la galería sube
+            hasta aquí y ya invita a bajar mejor que una flecha. */}
         <div
-          className="hero-in absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex"
+          className="hero-in absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex lg:hidden"
           style={{ "--d": "640ms" } as React.CSSProperties}
         >
           <span className="text-micro tracking-[0.3em] text-arena/70 uppercase">
