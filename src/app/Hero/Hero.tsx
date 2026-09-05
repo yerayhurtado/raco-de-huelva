@@ -56,7 +56,7 @@ export default function Hero() {
           src={heroBg}
           alt="Mariscos frescos premium de Huelva en El Racó de Huelva, restaurante en Mollet del Vallès"
           fill
-          className="hero-settle z-0 object-cover"
+          className="hero-settle z-0 object-cover object-[28%_50%] sm:object-[38%_50%]"
           placeholder="blur"
           priority
           quality={85}
@@ -68,16 +68,24 @@ export default function Hero() {
           <div className="flex flex-col items-center text-center">
             {/* Sin eyebrow: el titular se sostiene solo, y la localizacion
                 ya viaja en la linea de prueba de debajo. */}
+            {/* El nombre va dentro del h1, no encima: era el único sitio de
+                la página donde no aparecía en un encabezado, y para un
+                negocio local es la señal más fuerte que tiene. */}
             <h1
-              className="hero-in max-w-[72rem] text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.08] text-arena-clara text-pretty"
+              className="hero-in flex flex-col items-center"
               style={{ "--d": "80ms" } as React.CSSProperties}
             >
-              Sabores del mar de Huelva
-              <span className="hidden sm:inline">
-                <br />
+              <span className="font-sans text-mini font-semibold tracking-[0.34em] text-arena uppercase">
+                El Racó de Huelva
               </span>
-              <span className="sm:hidden"> </span>
-              en tu mesa
+              <span className="mt-6 block max-w-[72rem] text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.08] text-arena-clara text-pretty">
+                Sabores del mar de Huelva
+                <span className="hidden sm:inline">
+                  <br />
+                </span>
+                <span className="sm:hidden"> </span>
+                en tu mesa
+              </span>
             </h1>
 
             <span
@@ -125,7 +133,7 @@ export default function Hero() {
             >
               <span className="flex items-center gap-2">
                 <Star size={14} className="fill-arena text-arena" aria-hidden="true" />
-                <span className="tabular-nums">4,6</span> en Google
+                <span className="tabular-nums">4,6 en Google</span>
               </span>
               <span className="hidden h-[3px] w-[3px] rounded-full bg-arena/60 sm:block" />
               <span>Carrer Roger de Llúria, 7</span>
