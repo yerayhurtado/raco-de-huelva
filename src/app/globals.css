@@ -55,25 +55,48 @@
 }
 
 /* ------------------------------------------------------------------
-   Entrada al hacer scroll.
-   El IntersectionObserver solo decide CUANDO; la animacion la hace CSS,
-   que corre fuera del hilo principal y no pierde fotogramas mientras
-   Next hidrata. Por eso no hace falta una libreria de animacion.
+   Movimiento.
+   Un solo momento con autoria (la galeria) y el resto casi quieto: la
+   misma entrada repetida en seis secciones es un tic, no una idea.
+   El IntersectionObserver solo decide CUANDO; anima CSS, que corre
+   fuera del hilo principal y no pierde fotogramas mientras Next hidrata.
    ------------------------------------------------------------------ */
-/* Solo se oculta si JS esta vivo: sin JS el contenido se ve tal cual.
-   La clase .js la pone un script en linea antes del primer pintado. */
+
+/* Entrada discreta, la de casi toda la pagina: solo opacidad. */
 .js .reveal {
   opacity: 0;
 }
 
 .reveal[data-visible="true"] {
-  animation: rh-rise 720ms var(--ease-suave) both;
+  animation: rh-fade 520ms var(--ease-suave) both;
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-@keyframes rh-rise {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes rh-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* El momento: en la galeria cada foto se descubre de arriba abajo.
+   La cortina va en el marco (clip-path), nunca en la imagen, para no
+   bloquear el transform del hover con un fill-mode que lo congelaria. */
+.js .reveal-frame {
+  opacity: 0;
+}
+
+.reveal-frame[data-visible="true"] {
+  animation: rh-fade 380ms var(--ease-suave) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-frame[data-visible="true"] .shot {
+  animation: rh-curtain 820ms var(--ease-suave) both;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 60ms);
+}
+
+@keyframes rh-curtain {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
 }
 
 /* Filete que se dibuja de dentro hacia fuera */
@@ -85,6 +108,18 @@
 @keyframes rh-rule {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
+}
+
+/* El hero entra con CSS puro, sin esperar a que hidrate React: es
+   contenido sobre el pliegue y no puede depender de JS para verse. */
+.hero-in {
+  animation: rh-rise 640ms var(--ease-suave) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes rh-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* Asentado de la foto del hero: entra un punto ampliada y se posa */
@@ -109,13 +144,13 @@
 
 /* Entrada escalonada de los platos de la carta al cambiar de pestaña */
 .dish-in {
-  animation: rh-dish 540ms var(--ease-suave) both;
+  animation: rh-dish 460ms var(--ease-suave) both;
   animation-delay: var(--dish-delay, 0ms);
 }
 
 @keyframes rh-dish {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* Subrayado de navegacion que crece desde la izquierda */
@@ -165,6 +200,50 @@
   margin: 0 12px;
   border-bottom: 1px dotted color-mix(in srgb, var(--color-marino) 28%, transparent);
   transform: translateY(-4px);
+}
+
+/* ------------------------------------------------------------------
+   Superficies que no dibuja el diseñador pero que el navegador pinta
+   igual: seleccion, barra de scroll, anillo de foco. Con los valores
+   por defecto la pagina parece ensamblada; tematizadas, construida.
+   ------------------------------------------------------------------ */
+::selection {
+  background: color-mix(in srgb, var(--color-arena) 55%, transparent);
+  color: var(--color-marino);
+}
+
+html {
+  scrollbar-color: var(--color-bronce) var(--color-crema);
+  scrollbar-width: thin;
+}
+
+/* Anillo de dos capas: sobre crema manda el trazo coral, sobre marino
+   manda el halo arena. Asi se ve en los dos fondos de la pagina. */
+:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-arena-clara);
+}
+
+/* Salto al contenido: invisible hasta que el teclado lo alcanza */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(-130%);
+  background: var(--color-coral);
+  color: #ffffff;
+  padding: 15px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  transition: transform 200ms var(--ease-suave);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 /* ------------------------------------------------------------------

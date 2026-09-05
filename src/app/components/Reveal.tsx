@@ -10,7 +10,7 @@ type RevealProps = {
   delay?: number;
   className?: string;
   /** Clase de animacion; por defecto la entrada estandar. */
-  variant?: "reveal" | "rule-draw";
+  variant?: "reveal" | "reveal-frame" | "rule-draw";
   as?: Tag;
   style?: CSSProperties;
 };

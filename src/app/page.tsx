@@ -6,21 +6,20 @@ import MenuDiario from "./MenuDiario/MenuDiario";
 import Contact from "./Contacto/Contacto";
 import Footer from "./Footer/Footer";
 import Opiniones from "./Opiniones/Opiniones";
-import MenusGrupo from "./MenuGrupo/MenuGrupo";
-import ChristmasAnnouncement from "./NavidadBanner/ChristmasBanner";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      {/* <ChristmasAnnouncement /> */}
-      <Gallery />
-      <Opiniones />
-      <Carta />      
-      {/* <MenuDiario /> */}
-      {/* <MenusGrupo /> */}
-      <Contact />
+      <main id="contenido">
+        <Hero />
+        <Gallery />
+        {/* El menu del dia es lo que mas citan las reseñas; estaba apagado. */}
+        <MenuDiario />
+        <Carta />
+        <Opiniones />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

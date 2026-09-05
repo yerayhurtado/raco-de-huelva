@@ -8,6 +8,7 @@ import Image from "next/image";
 const navItems = [
   { label: "Inicio", href: "#hero", id: "hero" },
   { label: "Galería", href: "#galeria", id: "galeria" },
+  { label: "Menú del día", href: "#menu", id: "menu" },
   { label: "Carta", href: "#carta", id: "carta" },
   { label: "Opiniones", href: "#opiniones", id: "opiniones" },
   { label: "Contacto", href: "#contacto", id: "contacto" },
@@ -107,7 +108,7 @@ export default function Header() {
             </Link>
 
             <nav className="flex flex-1 justify-center" aria-label="Navegación principal">
-              <ul className="flex gap-9">
+              <ul className="flex gap-7 lg:gap-9">
                 {navItems.map((item) => (
                   <li key={item.href}>
                     <a

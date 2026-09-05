@@ -83,9 +83,17 @@ export default function Footer() {
               </span>
               <a
                 href="tel:+34658890607"
-                className="mt-5.5 text-[15px] text-marino transition-colors duration-[220ms] hover:text-coral"
+                className="mt-5.5 text-[15px] text-marino tabular-nums transition-colors duration-[220ms] hover:text-coral"
               >
                 658 89 06 07
+              </a>
+              <a
+                href="https://wa.me/34658890607?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mesa%20en%20El%20Rac%C3%B3%20de%20Huelva."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 text-[15px] text-tinta transition-colors duration-[220ms] hover:text-coral"
+              >
+                WhatsApp
               </a>
               <address className="mt-3.5 text-[15px] leading-[1.75] text-tinta not-italic">
                 Carrer Roger de Llúria, 7

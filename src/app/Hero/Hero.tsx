@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
-import Reveal from "../components/Reveal";
 
 export default function Hero() {
   return (
@@ -48,7 +47,7 @@ export default function Hero() {
 
       <section
         id="hero"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-marino-oscuro pt-28 pb-24 text-white sm:pt-32"
+        className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-marino-oscuro pt-28 pb-24 text-white sm:pt-32"
         aria-label="Bienvenida a El Racó de Huelva - Mariscos frescos de Huelva en Mollet del Vallès, Barcelona"
       >
         <Image
@@ -64,44 +63,37 @@ export default function Hero() {
 
         <div className="relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <Reveal delay={340} className="flex items-center gap-4">
-              <span className="hidden h-px w-8 bg-arena/55 sm:block" />
-              <span className="text-[10px] tracking-[0.32em] text-arena uppercase sm:text-[11px] sm:tracking-[0.34em]">
-                Producto de Huelva · Mollet del Vallès
-              </span>
-              <span className="hidden h-px w-8 bg-arena/55 sm:block" />
-            </Reveal>
-
-            <Reveal delay={460} className="mt-6 sm:mt-7">
-              <h1 className="max-w-[72rem] text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.08] text-arena-clara text-pretty">
-                Sabores del mar de Huelva
-                <span className="hidden sm:inline">
-                  <br />
-                </span>
-                <span className="sm:hidden"> </span>
-                en tu mesa
-              </h1>
-            </Reveal>
-
-            <Reveal
-              variant="rule-draw"
-              delay={760}
-              as="span"
-              className="mt-7 block h-px w-16 origin-center bg-arena sm:w-23"
+            {/* Sin eyebrow: el titular se sostiene solo, y la localizacion
+                ya viaja en la linea de prueba de debajo. */}
+            <h1
+              className="hero-in max-w-[72rem] text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.08] text-arena-clara text-pretty"
+              style={{ "--d": "80ms" } as React.CSSProperties}
             >
-              {null}
-            </Reveal>
+              Sabores del mar de Huelva
+              <span className="hidden sm:inline">
+                <br />
+              </span>
+              <span className="sm:hidden"> </span>
+              en tu mesa
+            </h1>
 
-            <Reveal delay={620} className="mt-7 sm:mt-8">
-              <p className="mx-auto max-w-[38rem] text-base leading-[1.75] text-crema/85 text-pretty sm:text-lg">
-                Marisco fresco traído directamente desde Huelva y Sanlúcar, tratado con
-                cocina de producto y servicio de sala en el centro de Mollet del Vallès.
-              </p>
-            </Reveal>
+            <span
+              className="hero-in mt-7 block h-px w-16 origin-center bg-arena sm:w-23"
+              style={{ "--d": "380ms" } as React.CSSProperties}
+              aria-hidden="true"
+            />
 
-            <Reveal
-              delay={760}
-              className="mt-10 flex w-full flex-col items-center gap-4 sm:mt-11 sm:w-auto sm:flex-row sm:gap-8"
+            <p
+              className="hero-in mx-auto mt-7 max-w-[38rem] text-base leading-[1.75] text-crema/85 text-pretty sm:mt-8 sm:text-lg"
+              style={{ "--d": "200ms" } as React.CSSProperties}
+            >
+              Marisco fresco traído directamente desde Huelva y Sanlúcar, tratado con
+              cocina de producto y servicio de sala en el centro de Mollet del Vallès.
+            </p>
+
+            <div
+              className="hero-in mt-10 flex w-full flex-col items-center gap-4 sm:mt-11 sm:w-auto sm:flex-row sm:gap-8"
+              style={{ "--d": "320ms" } as React.CSSProperties}
             >
               <a
                 href="tel:+34658890607"
@@ -122,29 +114,22 @@ export default function Hero() {
                   aria-hidden="true"
                 />
               </a>
-            </Reveal>
+            </div>
 
-            <Reveal
-              delay={900}
-              className="mt-11 flex flex-col items-center gap-3 text-xs tracking-[0.08em] text-crema/75 sm:mt-13 sm:flex-row sm:gap-5"
+            <div
+              className="hero-in mt-11 flex flex-col items-center gap-3 text-xs tracking-[0.08em] text-crema/75 sm:mt-13 sm:flex-row sm:gap-5"
+              style={{ "--d": "440ms" } as React.CSSProperties}
             >
               <span className="flex items-center gap-2">
                 <Star size={14} className="fill-arena text-arena" aria-hidden="true" />
-                4,6 en Google
+                <span className="tabular-nums">4,6</span> en Google
               </span>
               <span className="hidden h-[3px] w-[3px] rounded-full bg-arena/60 sm:block" />
               <span>Carrer Roger de Llúria, 7</span>
               <span className="hidden h-[3px] w-[3px] rounded-full bg-arena/60 sm:block" />
               <span>Miércoles a domingo</span>
-            </Reveal>
+            </div>
           </div>
-        </div>
-
-        <div className="absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex">
-          <span className="text-[10px] tracking-[0.3em] text-arena/70 uppercase">
-            Descubre
-          </span>
-          <ChevronDown size={18} className="cue text-arena" aria-hidden="true" />
         </div>
       </section>
     </>

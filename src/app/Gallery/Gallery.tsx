@@ -96,21 +96,14 @@ export default function Gallery() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center text-center">
-            <Reveal className="flex items-center gap-4">
-              <span className="hidden h-px w-7 bg-bronce/50 sm:block" />
-              <span className="text-[10px] tracking-[0.32em] text-bronce uppercase sm:text-[11px] sm:tracking-[0.34em]">
-                Nuestras creaciones
-              </span>
-              <span className="hidden h-px w-7 bg-bronce/50 sm:block" />
-            </Reveal>
 
-            <Reveal delay={110} className="mt-6">
+            <Reveal>
               <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.1] text-marino">
                 Galería de platos
               </h2>
             </Reveal>
 
-            <Reveal delay={200} className="mt-6">
+            <Reveal delay={90} className="mt-6">
               <p className="mx-auto max-w-[37rem] text-base leading-[1.75] text-tinta text-pretty sm:text-[17px]">
                 Una selección de lo que sale cada día de nuestra cocina, elaborada con
                 producto fresco de Huelva y Sanlúcar.
@@ -123,12 +116,13 @@ export default function Gallery() {
               <Reveal
                 key={plato.id}
                 as="article"
-                delay={300 + index * 80}
+                variant="reveal-frame"
+                delay={index * 90}
                 className="group flex flex-col"
               >
                 <div
                   id={`galeria-${plato.id}`}
-                  className="relative h-80 overflow-hidden bg-[#e4dcd1] sm:h-[21.25rem]"
+                  className="shot relative h-80 overflow-hidden bg-[#e4dcd1] sm:h-[21.25rem]"
                 >
                   <Image
                     src={plato.imagen}

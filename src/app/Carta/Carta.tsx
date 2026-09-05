@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Reveal from "../components/Reveal";
 
 type MenuCategory = "Para compartir" | "Entrantes especiales" | "Carnes" | "Pescados" | "Arroces" | "Bollería" | "Postres" | "Vinos";
@@ -277,6 +277,25 @@ export default function Carta() {
     setPass((value) => value + 1);
   };
 
+  // role="tablist" promete navegacion con flechas: si se pone el rol,
+  // hay que cumplirlo. Con tabindex movil, como manda el patron ARIA.
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const onTabKeyDown = (event: React.KeyboardEvent, index: number) => {
+    const last = categories.length - 1;
+    let next: number;
+
+    if (event.key === "ArrowRight") next = index === last ? 0 : index + 1;
+    else if (event.key === "ArrowLeft") next = index === 0 ? last : index - 1;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = last;
+    else return;
+
+    event.preventDefault();
+    selectCategory(categories[next]);
+    tabRefs.current[next]?.focus();
+  };
+
   return (
     <section
       id="carta"
@@ -285,21 +304,14 @@ export default function Carta() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center text-center">
-          <Reveal className="flex items-center gap-4">
-            <span className="hidden h-px w-7 bg-bronce/50 sm:block" />
-            <span className="text-[10px] tracking-[0.32em] text-bronce uppercase sm:text-[11px] sm:tracking-[0.34em]">
-              Propuesta culinaria
-            </span>
-            <span className="hidden h-px w-7 bg-bronce/50 sm:block" />
-          </Reveal>
 
-          <Reveal delay={110} className="mt-6">
+          <Reveal>
             <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.1] text-marino">
               La carta
             </h2>
           </Reveal>
 
-          <Reveal delay={200} className="mt-6">
+          <Reveal delay={90} className="mt-6">
             <p className="mx-auto max-w-[36rem] text-base leading-[1.75] text-tinta text-pretty sm:text-[17px]">
               Producto fresco de temporada. La disponibilidad varía según la captura del día.
             </p>
@@ -312,7 +324,7 @@ export default function Carta() {
             aria-label="Categorías de la carta"
             className="flex flex-wrap justify-center gap-x-10 gap-y-2 border-b border-marino/12"
           >
-            {categories.map((category) => {
+            {categories.map((category, index) => {
               const selected = category === activeCategory;
               return (
                 <button
@@ -320,9 +332,14 @@ export default function Carta() {
                   type="button"
                   role="tab"
                   id={`tab-${slug(category)}`}
+                  ref={(node) => {
+                    tabRefs.current[index] = node;
+                  }}
+                  tabIndex={selected ? 0 : -1}
                   aria-selected={selected}
                   aria-controls={`panel-${slug(category)}`}
                   onClick={() => selectCategory(category)}
+                  onKeyDown={(event) => onTabKeyDown(event, index)}
                   className={`tab relative cursor-pointer px-0.5 py-3 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors duration-[240ms] ${
                     selected ? "text-coral" : "text-marino hover:text-coral"
                   }`}
@@ -351,7 +368,7 @@ export default function Carta() {
               <div className="flex items-baseline">
                 <h3 className="text-[22px] leading-[1.3] text-marino">{item.nombre}</h3>
                 <span className="leader" aria-hidden="true" />
-                <span className="font-display text-[19px] whitespace-nowrap text-marino">
+                <span className="font-display text-[19px] whitespace-nowrap text-marino tabular-nums">
                   {item.precio}
                 </span>
               </div>

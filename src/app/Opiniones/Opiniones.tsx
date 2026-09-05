@@ -67,21 +67,14 @@ export default function Opiniones() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center text-center">
-          <Reveal className="flex items-center gap-4">
-            <span className="hidden h-px w-7 bg-arena/60 sm:block" />
-            <span className="text-[10px] tracking-[0.32em] text-arena uppercase sm:text-[11px] sm:tracking-[0.34em]">
-              Experiencias en sala
-            </span>
-            <span className="hidden h-px w-7 bg-arena/60 sm:block" />
-          </Reveal>
 
-          <Reveal delay={110} className="mt-6">
+          <Reveal>
             <h2 className="text-[clamp(2.25rem,5.5vw,3.875rem)] leading-[1.1] text-arena-clara">
               Lo que dicen
             </h2>
           </Reveal>
 
-          <Reveal delay={200} className="mt-6">
+          <Reveal delay={90} className="mt-6">
             <p className="mx-auto max-w-[35rem] text-base leading-[1.75] text-crema/80 text-pretty sm:text-[17px]">
               La opinión de quien se sienta a nuestra mesa es el único aval que nos interesa.
             </p>
