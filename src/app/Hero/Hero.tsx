@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroBg from "../../../public/HeroBg.jpg";
-import { ArrowRight, ChevronDown, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import EstadoApertura from "../components/EstadoApertura";
 
 export default function Hero() {
@@ -63,6 +63,18 @@ export default function Hero() {
           sizes="100vw"
         />
         <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(13,46,61,0.88)_0%,rgba(15,63,92,0.68)_42%,rgba(13,46,61,0.92)_100%)]" />
+
+        {/* El hero se disuelve en la crema de la galería.
+            Va como VELO de crema sobre la fotografía, no como
+            interpolación entre los dos colores planos: interpolar crema
+            y marino pasa por grises (#B2BABB, #839297) que no están en
+            la paleta. Un velo cálido sobre una foto se lee como niebla.
+            El recorrido se concentra en el último tramo para que la
+            franja intermedia dure lo menos posible. */}
+        <div
+          className="absolute inset-x-0 bottom-0 z-0 h-40 bg-[linear-gradient(180deg,rgba(249,246,241,0)_0%,rgba(249,246,241,0.12)_45%,rgba(249,246,241,0.72)_80%,var(--color-crema)_100%)] sm:h-60"
+          aria-hidden="true"
+        />
 
         <div className="hero-out relative z-10 w-full max-w-6xl px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
@@ -141,16 +153,6 @@ export default function Hero() {
               <EstadoApertura />
             </div>
           </div>
-        </div>
-
-        <div
-          className="hero-in absolute inset-x-0 bottom-8 z-10 hidden flex-col items-center gap-2.5 sm:flex"
-          style={{ "--d": "640ms" } as React.CSSProperties}
-        >
-          <span className="text-micro tracking-[0.3em] text-arena/70 uppercase">
-            Descubre
-          </span>
-          <ChevronDown size={18} className="cue text-arena" aria-hidden="true" />
         </div>
       </section>
     </>
